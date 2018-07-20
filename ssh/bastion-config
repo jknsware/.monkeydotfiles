@@ -1,0 +1,3 @@
+Host 10.*
+  IdentityFile /home/jware/.ssh/ssh-jwarehealthline-aws
+  User jware
