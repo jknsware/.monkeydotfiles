@@ -1,0 +1,22 @@
+# [init]
+#   templatedir = ~/.git/templates
+
+[core]
+
+[user]
+  name = Jason Ware
+  email = jason@jknsware.com
+  useconfigonly = true
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+[commit]
+  template = /Users/jware/.git/templates/hooks/commit-msg-template
+[core]
+[core]
+[core]
+[core]
+  editor = sublime -n -w $1:2
+  hookspath = /Users/jware/.git/templates/hooks
