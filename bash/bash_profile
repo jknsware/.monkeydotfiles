@@ -28,3 +28,5 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
 [[ $- = *i* ]] && source ~/git/home/liquidprompt/liquidprompt
+
+echo "  Bash profile sourced."

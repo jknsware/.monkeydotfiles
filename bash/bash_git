@@ -33,3 +33,5 @@ alias cdho="cd ~/git/home"
 
 # Export GITHUB_OATH_TOKEN
 export GITHUB_OAUTH_TOKEN=812a5049da0a91a8501375acf6893ed836182c83
+
+echo "  Bash git sourced."
