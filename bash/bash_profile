@@ -1,16 +1,24 @@
 #!/bin/bash
 
-sourcefile=(
-  ~/.monkeydotfiles/bash/bash_exports
-  ~/.monkeydotfiles/bash/bash_aliases
-  ~/.monkeydotfiles/bash/bash_docker
-  ~/.monkeydotfiles/bash/bash_git
-  ~/.monkeydotfiles/bash/bash_lpass
-  )
+function sourcebash () {
+  local sourcefiles=()
 
-for file in "${sourcefiles[@]}"; do
-  source "${file}"
-done
+  sourcefiles=(
+    ~/.monkeydotfiles/bash/bash_exports
+    ~/.monkeydotfiles/bash/bash_aliases
+    ~/.monkeydotfiles/bash/bash_docker
+    ~/.monkeydotfiles/bash/bash_git
+    ~/.monkeydotfiles/bash/bash_lpass
+    )
+
+  for file in "${sourcefiles[@]}"; do
+    source "${file}"
+  done
+
+  echo "INFO: Files sourced."
+}
+
+sourcebash
 
 # default file permissions
 umask 002

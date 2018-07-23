@@ -23,7 +23,8 @@ function dke () {
     echo "USAGE: Exec into a container."
     echo "USAGE: dke <container_name>"
   else
-    docker exec -it
+    docker exec -it $1 /bin/bash
+  fi
 }
 
 function dkflush () {

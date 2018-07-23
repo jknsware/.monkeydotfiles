@@ -16,6 +16,7 @@ export HISTIGNORE="&:l:ls:lt:la::ll:exit:history"
 # https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 history_sync() { 
   history -a; history -c; history -r; 
+}
 
 # Force history commit after every command:
 PROMPT_COMMAND="$history_sync"
