@@ -1,0 +1,30 @@
+#!/bin/bash
+
+## Git Aliases
+
+# Git - Run git log with graph
+alias gitgraph="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+# Git - Tag help
+function gittag()
+{
+  echo "  To add tags:"
+  echo "  git tag -a v0.1.18 -m \"Adds this functionality\""
+  echo "  git push origin --tags"
+  echo "   "
+  echo "  To delete tags:"
+  echo "  git tag -d tag-name"
+  echo "  git push origin :refs/tags/tag-name"
+}
+
+# Git - Remove all branches but master
+alias gitbr="git branch | grep -v "master" | xargs git branch -D
+
+# Alias changing to main git repos
+alias cdm='cd ~/git/hl/infrastructure-modules'
+alias cdl='cd ~/git/hl/infrastructure-live'
+
+## Git Exports
+
+# Export GITHUB_OATH_TOKEN
+export GITHUB_OAUTH_TOKEN=812a5049da0a91a8501375acf6893ed836182c83

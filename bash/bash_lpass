@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Alias all the "aws-auth" scripts with "lpass"
+# https://github.com/jknsware/lastpass-with-aws
+
+alias aws-auth-security='eval "$(lpass show aws-auth-security --field Param1; lpass show aws-auth-security --field Param2)"'
+alias aws-auth-shared_services='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-shared_services-arn --username)"'
+alias aws-auth-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-prod-arn --username)"'
+alias aws-auth-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-staging-arn --username)"'
+alias aws-auth-preprod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-preprod-arn --username)"'
+alias aws-auth-sandbox='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-sandbox-arn --username)"'
+alias aws-auth-legacy='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-legacy-arn --username)"'
+# alias aws-auth-tl-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-tl-staging-arn --username)"'
+# alias aws-auth-tl-preprod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-tl-preprod-arn --username)"'
+# alias aws-auth-tl-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-tl-prod-arn --username)"'

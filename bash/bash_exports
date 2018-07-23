@@ -1,0 +1,87 @@
+#!/bin/bash
+
+#####################
+# History Control
+#####################
+
+export HISTSIZE=20000
+export HISTFILESIZE=$HISTSIZE
+export HISTTIMEFORMAT="[%F %T] "
+# Ignore duplicates written in sequence
+export HISTCONTROL=ignoredups
+export HISTIGNORE="&:l:ls:lt:la::ll:exit:history"
+
+# history_sync: After every command, append latest commands to hist file, then clear shell history, and re-read all from file
+# https://github.com/RichVel/nicer-bash-prompt/blob/master/nicer-bash-prompt
+# https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
+history_sync() { 
+  history -a; history -c; history -r; 
+
+# Force history commit after every command:
+PROMPT_COMMAND="$history_sync"
+
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+#################
+# Completions
+#################
+
+# Source cht.sh completion
+# https://github.com/chubin/cheat.sh
+if [ -f /usr/local/etc/cht_completion.d/cht.sh ] ; then
+  . /usr/local/etc/cht_completion.d/cht.sh
+fi
+
+# AWS Command Completion
+# complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/Users/jware/Library/Python/3.6/bin/aws_completer' aws
+
+# Enable thefuck alias
+# https://github.com/nvbn/thefuck
+if [ -f /usr/local/bin/fuck ] ; then
+  eval $(thefuck --alias --enable-experimental-instant-mode)
+fi
+
+# kubectl completion
+# source <(kubectl completion bash)
+
+# Brew bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# Source LastPass cli completion
+if [[ -f /usr/local/Cellar/lastpass-cli/1.2.2/share/bash-completion/completions/lpass ]]; then
+    source "/usr/local/Cellar/lastpass-cli/1.2.2/share/bash-completion/completions/lpass"
+fi
+
+# explain.sh begins
+# https://www.tecmint.com/explain-shell-commands-in-the-linux-shell/
+explain () {
+  if [ "$#" -eq 0 ]; then
+    while read  -p "Command: " cmd; do
+      curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+    done
+    echo "Bye!"
+  elif [ "$#" -eq 1 ]; then
+    curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+  else
+  echo "Usage"
+  echo "explain                  interactive mode."
+  echo "explain 'cmd -o | ...'   one quoted command to explain it."
+  fi
+}
+
+# Source chtf for multi Terraform versions
+if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
+    source "/usr/local/share/chtf/chtf.sh"
+    . /usr/local/share/chtf/chtf.sh 0.10.8
+fi
+
+#############
+# Pathing
+#############
+
+# Python
+export PATH=~/Library/Python/3.6/bin:$PATH
