@@ -1,0 +1,23 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Anaconda",
+		"Compare Side-By-Side",
+		"Dockerfile Syntax Highlighting",
+		"GitGutter",
+		"Markdown Extended",
+		"MarkdownPreview",
+		"Package Control",
+		"SideBarEnhancements",
+		"Terraform",
+		"Theme - Afterglow"
+	],
+	"repositories":
+	[
+		"https://github.com/tmichel/sublime-terraform"
+	]
+}

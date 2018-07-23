@@ -35,7 +35,9 @@ fi
 
 # AWS Command Completion
 # complete -C '/usr/local/bin/aws_completer' aws
-complete -C '/Users/jware/Library/Python/3.6/bin/aws_completer' aws
+if [ -f ~/Library/Python/3.6/bin/aws_completer ] ; then
+  complete -C '~/Library/Python/3.6/bin/aws_completer' aws
+fi
 
 # Enable thefuck alias
 # https://github.com/nvbn/thefuck
@@ -47,13 +49,18 @@ fi
 # source <(kubectl completion bash)
 
 # Brew bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
+if [ -f $(brew --prefix)/etc/bash_completion ] ; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
 # Source LastPass cli completion
-if [[ -f /usr/local/Cellar/lastpass-cli/1.2.2/share/bash-completion/completions/lpass ]]; then
+if [[ -f /usr/local/Cellar/lastpass-cli/1.2.2/share/bash-completion/completions/lpass ]] ; then
     source "/usr/local/Cellar/lastpass-cli/1.2.2/share/bash-completion/completions/lpass"
+fi
+
+# Source git completion
+if [ -f ~/.monkeydotfile/git/git-completion.sh ] ; then
+  souce "~/.monkeydotfile/git/git-completion.sh"
 fi
 
 # explain.sh begins

@@ -1,22 +1,26 @@
 # [init]
 #   templatedir = ~/.git/templates
 
-[core]
+[alias]
+
+  # Custom graph log
+  graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [user]
   name = Jason Ware
   email = jason@jknsware.com
   useconfigonly = true
+
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
+
 [commit]
-  template = /Users/jware/.git/templates/hooks/commit-msg-template
-[core]
-[core]
-[core]
+  template = ~/.git/templates/hooks/commit-msg-template
+
+
 [core]
   editor = sublime -n -w $1:2
-  hookspath = /Users/jware/.git/templates/hooks
+  hookspath = ~/.git/templates/hooks
