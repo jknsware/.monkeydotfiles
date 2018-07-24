@@ -36,8 +36,8 @@ fi
 
 # AWS Command Completion
 # complete -C '/usr/local/bin/aws_completer' aws
-if [ -f ~/Library/Python/3.6/bin/aws_completer ] ; then
-  complete -C '~/Library/Python/3.6/bin/aws_completer' aws
+if [ -f ~/Library/Python/3.7/bin/aws_completer ] ; then
+  complete -C '~/Library/Python/3.7/bin/aws_completer' aws
 fi
 
 # Enable thefuck alias
@@ -92,6 +92,6 @@ fi
 #############
 
 # Python
-export PATH=~/Library/Python/3.6/bin:$PATH
+export PATH=~/Library/Python/3.7/bin:$PATH
 
 echo "  Bash exports sourced."

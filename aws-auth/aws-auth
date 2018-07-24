@@ -6,8 +6,6 @@ set -e
 
 readonly SCRIPT_NAME=$(basename "$0")
 readonly EMPTY_VAL="__EMPTY__"
-readonly DEFAULT_MFA_TOKEN_DURATION_SECONDS=43200 # 12 hours
-readonly DEFAULT_ROLE_DURATION_SECONDS=43200 # 12 hours
 
 function print_usage {
   echo
@@ -19,17 +17,15 @@ function print_usage {
   echo
   echo "Options:"
   echo
-  echo -e "  --serial-number\t\tThe ARN of your MFA device. You can find this in the IAM console for your IAM user."
-  echo -e "  --token-code\t\t\tThe current token on your MFA device. Open up your MFA app to get it."
-  echo -e "  --role-arn\t\t\tThe ARN of an IAM role to assume. Optional."
-  echo -e "  --mfa-duration-seconds\tThe MFA token will expire after this many seconds. Max: 36 hours (129,600 seconds). Default: $DEFAULT_MFA_TOKEN_DURATION_SECONDS."
-  echo -e "  --role-duration-seconds\tThe IAM role will expire after this many seconds. Max: 12 hours (43,200 seconds). Default: $DEFAULT_ROLE_DURATION_SECONDS."
-  echo -e "  --help\t\t\tShow this help text and exit."
+  echo -e "  --serial-number\tThe ARN of your MFA device. You can find this in the IAM console for your IAM user."
+  echo -e "  --token-code\t\tThe current token on your MFA device. Open up your MFA app to get it."
+  echo -e "  --role-arn\t\tThe ARN of an IAM role to assume. Optional."
+  echo -e "  --help\t\tShow this help text and exit."
   echo
   echo "Examples:"
   echo
   echo "  eval \"\$(aws-auth --serial-number arn:aws:iam::123456789011:mfa/jondoe --token-code 123456)\""
-  echo "  eval \"\$(aws-auth --role-arn arn:aws:iam::123456789011:role/rolename --role-duration-seconds 43200)\""
+  echo "  eval \"\$(aws-auth --role-arn arn:aws:iam::123456789011:role/rolename)\""
   echo "  eval \"\$(aws-auth --role-arn arn:aws:iam::123456789011:role/rolename --serial-number arn:aws:iam::123456789011:mfa/jondoe --token-code 123456)"
 }
 
@@ -131,8 +127,6 @@ function get_session_token {
   local serial_number="$EMPTY_VAL"
   local token_code="$EMPTY_VAL"
   local role_arn="$EMPTY_VAL"
-  local mfa_token_duration_seconds="$DEFAULT_MFA_TOKEN_DURATION_SECONDS"
-  local role_duration_seconds="$DEFAULT_ROLE_DURATION_SECONDS"
 
   while [[ $# > 0 ]]; do
     local key="$1"
@@ -148,16 +142,6 @@ function get_session_token {
         ;;
       --role-arn)
         role_arn="$2"
-        shift
-        ;;
-      --mfa-duration-seconds)
-        assert_not_empty "$key" "$2"
-        mfa_token_duration_seconds="$2"
-        shift
-        ;;
-      --role-duration-seconds)
-        assert_not_empty "$key" "$2"
-        role_duration_seconds="$2"
         shift
         ;;
       --help)
@@ -184,7 +168,6 @@ function get_session_token {
   local access_key_id
   local secret_access_key
   local session_token
-  local expiration
   local use_mfa
   local assume_role
 
@@ -200,34 +183,31 @@ function get_session_token {
   fi
 
   if [[ "$use_mfa" == "true" ]]; then
-    log_info "Getting temporary credentials and token for MFA device $serial_number. These creds will expire after $mfa_token_duration_seconds seconds."
-    session_token_response=$(AWS_SESSION_TOKEN="" aws sts get-session-token --serial-number "$serial_number" --token-code "$token_code" --duration-seconds "$mfa_token_duration_seconds" --output "json")
+    log_info "Getting temporary credentials and token for MFA device $serial_number"
+    session_token_response=$(AWS_SESSION_TOKEN="" aws sts get-session-token --serial-number "$serial_number" --token-code "$token_code" --output "json")
 
     access_key_id=$(echo "$session_token_response" | jq -r '.Credentials.AccessKeyId')
     secret_access_key=$(echo "$session_token_response" | jq -r '.Credentials.SecretAccessKey')
     session_token=$(echo "$session_token_response" | jq -r '.Credentials.SessionToken')
-    expiration=$(echo "$session_token_response" | jq -r '.Credentials.Expiration')
   fi
 
   if [[ "$assume_role" == "true" ]]; then
-    log_info "Assuming role $role_arn. These creds will expire after $role_duration_seconds seconds."
+    log_info "Assuming role $role_arn"
 
     if [[ "$use_mfa" == "true" ]]; then
-      assume_role_response=$(AWS_ACCESS_KEY_ID="$access_key_id" AWS_SECRET_ACCESS_KEY="$secret_access_key" AWS_SESSION_TOKEN="$session_token" aws sts assume-role --role-arn "$role_arn" --role-session-name "$USER" --duration-seconds "$role_duration_seconds" --output "json")
+      assume_role_response=$(AWS_ACCESS_KEY_ID="$access_key_id" AWS_SECRET_ACCESS_KEY="$secret_access_key" AWS_SESSION_TOKEN="$session_token" aws sts assume-role --role-arn "$role_arn" --role-session-name "$USER" --output "json")
     else
-      assume_role_response=$(aws sts assume-role --role-arn "$role_arn" --role-session-name "$USER" --duration-seconds "$role_duration_seconds" --output "json")
+      assume_role_response=$(aws sts assume-role --role-arn "$role_arn" --role-session-name "$USER" --output "json")
     fi
 
     access_key_id=$(echo "$assume_role_response" | jq -r '.Credentials.AccessKeyId')
     secret_access_key=$(echo "$assume_role_response" | jq -r '.Credentials.SecretAccessKey')
     session_token=$(echo "$assume_role_response" | jq -r '.Credentials.SessionToken')
-    expiration=$(echo "$assume_role_response" | jq -r '.Credentials.Expiration')
   fi
 
   echo "export AWS_ACCESS_KEY_ID='$access_key_id'"
   echo "export AWS_SECRET_ACCESS_KEY='$secret_access_key'"
   echo "export AWS_SESSION_TOKEN='$session_token'"
-  echo "export AWS_SESSION_EXPIRATION='$expiration'"
 
   log_info "Success!"
 }

@@ -14,8 +14,6 @@ function sourcebash () {
   for file in "${sourcefiles[@]}"; do
     source "${file}"
   done
-
-  echo "INFO: Files sourced."
 }
 
 sourcebash

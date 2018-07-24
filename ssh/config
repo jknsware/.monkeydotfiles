@@ -22,7 +22,7 @@ Host *bitbucket.org
 
 # Healthline Bastion Staging
 Host bastion-staging
-  IdentityFile /Users/jware/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-35-162-145-19.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -30,7 +30,7 @@ Host bastion-staging
 
 # Healthline Bastion Preprod
 Host bastion-preprod
-  IdentityFile /Users/jware/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-35-164-208-226.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -38,7 +38,7 @@ Host bastion-preprod
 
 # Healthline Bastion Prod
 Host bastion-prod
-  IdentityFile /Users/jware/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-35-163-98-118.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -46,7 +46,7 @@ Host bastion-prod
 
 # Healthline Sandbox
 Host bastion-sandbox
-  IdentityFile /Users/jware/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware-sandbox
   Hostname ec2-54-218-219-206.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
