@@ -15,7 +15,7 @@ alias dkrm="docker rm"
 alias dkrmi="docker rmi"
 alias dm="docker-machine"
 alias dmx="docker-machine ssh"
-alias dkps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Command}}\t{{CreatedAt}}\t{{.Status}}\t{{.Ports}}\t{{.Mounts}}"'
+alias dkps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Command}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Ports}}\t{{.Mounts}}"'
 alias dktop='docker stats --format "table {{.Name}}\t{{.ID}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.NetIO}}"'
 
 function dke () {
