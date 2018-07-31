@@ -64,6 +64,11 @@ if [ -f ~/.monkeydotfile/git/git-completion.sh ] ; then
   souce "~/.monkeydotfile/git/git-completion.sh"
 fi
 
+# Source git completion
+if [ -f ~/.monkeydotfile/cheat/cheat-completion.sh ] ; then
+  source "~/.monkeydotfile/cheat/cheat-completion.sh"
+fi
+
 # explain.sh begins
 # https://www.tecmint.com/explain-shell-commands-in-the-linux-shell/
 explain () {

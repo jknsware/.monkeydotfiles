@@ -44,6 +44,6 @@ function cd_up() {
 alias 'cd..'='cd_up'
 
 # Cht.sh
-alias cheat=/usr/local/bin/cht.sh
+alias cheat=~/.monkeydotfiles/cheat/cht.sh
 
 echo "  Bash aliases sourced."
