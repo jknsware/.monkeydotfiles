@@ -23,26 +23,48 @@ function print_usage {
   echo
 }
 
+files_list=(
+  /usr/local/bin/aws-auth
+  ~/.bash_profile
+  ~/.bashrc
+  ~/.bash_aliases
+  ~/.git-autocompletion.sh
+  ~/.gitattributes
+  ~/.gitconfig
+  ~/.config/liquidprompt
+  ~/.lpass/username
+  ~/.ssh
+)
+
 function backup_files () {
   echo
   echo "INFO: Backing up files"
 
-  mkdir -v ~/.monkeydotfiles/backup
+  # Create backup folder if needed
+  if [ ! -d ~/.monkeydotfiles/backup/ ] ; then
+    mkdir -v ~/.monkeydotfiles/backup
+  fi
 
-  mv -fv /usr/loca/bin/aws-auth ~/.monkeydotfiles/backup/
-  mv -fv ~/.bash_profile ~/.monkeydotfiles/backup/
-  mv -fv ~/.bashrc ~/.monkeydotfiles/backup/
-  mv -fv ~/.git-autocompletion.sh ~/.monkeydotfiles/backup/
-  mv -fv ~/.gitattributes ~/.monkeydotfiles/backup/
-  mv -fv ~/.gitconfig ~/.monkeydotfiles/backup/
-  mv -fv ~/.config/liquidprompt ~/.monkeydotfiles/backup/
-  mv -fv ~/.lpass/username ~/.monkeydotfiles/backup/
-  mv -fv ~/.ssh ~/.monkeydotfiles/backup/
+  # Create a copy of original files
+  for _files in "${files_list[@]}" ; do
+    echo $_files
+    if [[ -e $_files ]] ; then
+      cp -vR $_files ~/.monkeydotfiles/backup/
+    fi
+  done
 }
 
 function symlink_env () {
   echo
   echo "INFO: Symlinking environment"
+
+  # Delete all the files
+  for _files in "${files_list[@]}" ; do
+    echo $_files
+    if [[ -e $_files ]] ; then
+      rm -rf $_files
+    fi
+  done
 
   ln -fsv ~/.monkeydotfiles/aws-auth/aws-auth /usr/local/bin/aws-auth
   ln -fsv ~/.monkeydotfiles/bash/bash_profile ~/.bash_profile
@@ -154,10 +176,6 @@ function install () {
     esac
   done
 
-  echo "$_backup"
-  echo "$_env"
-  echo "$_sublime"
-
   if [[ "$_backup" = true && "$_env" = true && "$_sublime" = true ]] ; then
     backup_files
     symlink_env
@@ -180,4 +198,3 @@ function install () {
 }
 
 install "$@"
-
