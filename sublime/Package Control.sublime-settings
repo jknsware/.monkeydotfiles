@@ -13,6 +13,8 @@
 		"MarkdownPreview",
 		"Package Control",
 		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-shellcheck",
 		"Terraform",
 		"Theme - Afterglow"
 	],
