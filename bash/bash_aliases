@@ -10,7 +10,7 @@ alias ea='sl -w ~/.monkeydotfiles/bash/bash_aliases; source ~/.bash_aliases && s
 ##### ls - ls alias configured
 #
 # Set 'ls' to all, human readable, long format, display helpful info, and color
-alias ll='ls -ahlFG'
+alias ll='ls -ahlFGL'
 
 # Set 'python' to be Python3 on cmd line
 alias python=python3

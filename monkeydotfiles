@@ -47,7 +47,6 @@ function backup_files () {
 
   # Create a copy of original files
   for _files in "${files_list[@]}" ; do
-    echo $_files
     if [[ -e $_files ]] ; then
       cp -vR $_files ~/.monkeydotfiles/backup/
     fi
@@ -60,7 +59,6 @@ function symlink_env () {
 
   # Delete all the files
   for _files in "${files_list[@]}" ; do
-    echo $_files
     if [[ -e $_files ]] ; then
       rm -rf $_files
     fi
@@ -133,6 +131,7 @@ function symlink_sublime () {
   ln -fsv ~/.monkeydotfiles/sublime/SBSCompareScheme.sublime-color-scheme ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SBSCompareScheme.sublime-color-scheme
   ln -fsv ~/.monkeydotfiles/sublime/SBSCompareTheme.tmTheme ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SBSCompareTheme.tmTheme
   ln -fsv ~/.monkeydotfiles/sublime/SublimeLinter.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SublimeLinter.sublime-settings
+  ln -fsv ~/.monkeydotfiles/sublime/SublimeLinter-shellcheck.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SublimeLinter-shellcheck.sublime-settings
   ln -fsv ~/.monkeydotfiles/sublime/Terraform.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Terraform.sublime-settings
 }
 
@@ -140,6 +139,17 @@ function source_bash () {
   echo
   echo "INFO: Sourcing .bash_profile"
   source ~/.bash_profile
+}
+
+function fix_ssh_perms () {
+  echo
+  echo "INFO: Fixing SSH file permissions"
+
+  ssh_files=$(find -L ~/.ssh -depth +1 \! -name "*.pub" -type f)
+
+  for _ssh_files in "${ssh_files[@]}" ; do
+    chmod 400 ${_ssh_files}
+  done
 }
 
 function install () {
@@ -181,6 +191,7 @@ function install () {
     symlink_env
     symlink_sublime
     source_bash
+    fix_ssh_perms
 
     echo
     echo "monkeydotfiles --all complete"
