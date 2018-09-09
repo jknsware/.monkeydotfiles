@@ -3,8 +3,27 @@
 
 [alias]
 
+  # List all aliases
+  aliases = config --get-regexp alias
+
   # Custom graph log
   graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+  # Delete branch
+  db = branch -D
+
+  # Show the last commit
+  last = log -1 HEAD
+
+  # Create a new branch
+  nb = checkout -b
+
+  # Show all remotes for the repo
+  remotes = remote -v
+
+  # Rename branch
+  renb = branch -m
+  
 
 [user]
   name = Jason Ware
@@ -19,7 +38,6 @@
 
 [commit]
   template = ~/.git/templates/hooks/commit-msg-template
-
 
 [core]
   editor = sublime -n -w $1:2
