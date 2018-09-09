@@ -48,7 +48,7 @@ function backup_files () {
   # Create a copy of original files
   for _files in "${files_list[@]}" ; do
     if [[ -e $_files ]] ; then
-      cp -vR $_files ~/.monkeydotfiles/backup/
+      cp -vR "$_files" ~/.monkeydotfiles/backup/
     fi
   done
 }
@@ -60,7 +60,7 @@ function symlink_env () {
   # Delete all the files
   for _files in "${files_list[@]}" ; do
     if [[ -e $_files ]] ; then
-      rm -rf $_files
+      rm -rf "$_files"
     fi
   done
 
@@ -89,14 +89,11 @@ function symlink_sublime () {
   rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/*
   rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/*
 
-  # Copy over this default file
-  cp ~/.monkeydotfiles/sublime/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
+  # Symlink the Package Control file
+  ln -fsv ~/.monkeydotfiles/sublime/installedpackages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
 
-  # Symlink Package Control with all the listed packages to be installed
-  if [ ! -d ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/ ] ; then
-    mkdir -v ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-  fi
-  ln -fsv ~/.monkeydotfiles/sublime/Package\ Control.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
+  # Symlink all the settings files
+  ln -fsv ~/.monkeydotfiles/sublime/user ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
   # Open Sublime and wait 30s for it to install everything
   echo "###############################################"
@@ -110,29 +107,6 @@ function symlink_sublime () {
 
   # Close Sublime again
   close_sl
-
-  echo
-  echo "INFO: Symlinking Sublime"
-
-  if [ ! -d ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SublimeLinter ] ; then
-    mkdir -v ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SublimeLinter
-  fi
-
-  ln -fsv ~/.monkeydotfiles/sublime/Monokai\ \(SL\).tmTheme ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SublimeLinter/Monokai\ \(SL\).tmTheme
-  ln -fsv ~/.monkeydotfiles/sublime/Anaconda.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Anaconda.sublime-settings
-  ln -fsv ~/.monkeydotfiles/sublime/Default\ \(OSX\).sublime-keymap ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
-  ln -fsv ~/.monkeydotfiles/sublime/Git\ Commit.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Git\ Commit.sublime-settings
-  ln -fsv ~/.monkeydotfiles/sublime/JSON.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/JSON.sublime-settings
-  ln -fsv ~/.monkeydotfiles/sublime/Markdown\ Extended.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown\ Extended.sublime-settings
-  ln -fsv ~/.monkeydotfiles/sublime/Markdown.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings
-  ln -fsv ~/.monkeydotfiles/sublime/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-  ln -fsv ~/.monkeydotfiles/sublime/Python.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Python.sublime-settings
-  ln -fsv ~/.monkeydotfiles/sublime/SBSCompare.tmTheme ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SBSCompare.tmTheme
-  ln -fsv ~/.monkeydotfiles/sublime/SBSCompareScheme.sublime-color-scheme ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SBSCompareScheme.sublime-color-scheme
-  ln -fsv ~/.monkeydotfiles/sublime/SBSCompareTheme.tmTheme ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SBSCompareTheme.tmTheme
-  ln -fsv ~/.monkeydotfiles/sublime/SublimeLinter.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SublimeLinter.sublime-settings
-  ln -fsv ~/.monkeydotfiles/sublime/SublimeLinter-shellcheck.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/SublimeLinter-shellcheck.sublime-settings
-  ln -fsv ~/.monkeydotfiles/sublime/Terraform.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Terraform.sublime-settings
 }
 
 function source_bash () {
@@ -148,7 +122,7 @@ function fix_ssh_perms () {
   ssh_files=$(find -L ~/.ssh -depth +1 \! -name "*.pub" -type f)
 
   for _ssh_files in "${ssh_files[@]}" ; do
-    chmod 400 ${_ssh_files}
+    chmod 400 "${_ssh_files}"
   done
 }
 
@@ -157,7 +131,7 @@ function install () {
   local _env=false
   local _sublime=false
 
-  while [[ $# > 0 ]]; do
+  while [[ $# -gt 0 ]]; do
     local key="$1"
 
     case "$key" in

@@ -8,6 +8,12 @@
 known_hosts
 backup/
 
+# Sublime Package Control that's not required
+Package*Control.cache/
+Package Control.last-run
+Package Control.merged-ca-bundle
+Package Control.user-ca-bundle
+oscrypto-ca-bundle.crt
 
 ################################################################################
 ### IntelliJ and Makefile specific.gitignore
@@ -356,7 +362,7 @@ BundleArtifacts/
 # files ending in .cache can be ignored
 *.[Cc]ache
 # but keep track of directories ending in .cache
-!*.[Cc]ache/
+# !*.[Cc]ache/
 
 # Others
 ClientBin/
