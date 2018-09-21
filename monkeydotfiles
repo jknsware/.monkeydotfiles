@@ -42,7 +42,7 @@ function backup_files () {
 
   # Move /backup if it still exists
   if [ -d "${HOME}"/.monkeydotfiles/backup ] ; then
-    mv "${HOME}"/.monkeydotfiles/backup "${HOME}"/monkeydotfiles/_backup
+    mv "${HOME}"/.monkeydotfiles/backup "${HOME}"/.monkeydotfiles/_backup
   fi
 
   # Create _backup folder if needed
