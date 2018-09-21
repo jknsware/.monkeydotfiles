@@ -25,30 +25,35 @@ function print_usage {
 
 files_list=(
   /usr/local/bin/aws-auth
-  ~/.bash_profile
-  ~/.bashrc
-  ~/.bash_aliases
-  ~/.git-autocompletion.sh
-  ~/.gitattributes
-  ~/.gitconfig
-  ~/.config/liquidprompt
-  ~/.lpass/username
-  ~/.ssh
+  "${HOME}"/.bash_profile
+  "${HOME}"/.bashrc
+  "${HOME}"/.bash_aliases
+  "${HOME}"/.git-autocompletion.sh
+  "${HOME}"/.gitattributes
+  "${HOME}"/.gitconfig
+  "${HOME}"/.config/liquidprompt
+  "${HOME}"/.lpass/username
+  "${HOME}"/.ssh
 )
 
 function backup_files () {
   echo
   echo "INFO: Backing up files"
 
-  # Create backup folder if needed
-  if [ ! -d ~/.monkeydotfiles/backup/ ] ; then
-    mkdir -v ~/.monkeydotfiles/backup
+  # Move /backup if it still exists
+  if [ -d "${HOME}"/.monkeydotfiles/backup ] ; then
+    mv "${HOME}"/.monkeydotfiles/backup "${HOME}"/monkeydotfiles/_backup
+  fi
+
+  # Create _backup folder if needed
+  if [ ! -d "${HOME}"/.monkeydotfiles/_backup/ ] ; then
+    mkdir -v "${HOME}"/.monkeydotfiles/_backup
   fi
 
   # Create a copy of original files
   for _files in "${files_list[@]}" ; do
     if [[ -e $_files ]] ; then
-      cp -vR "$_files" ~/.monkeydotfiles/backup/
+      cp -vR "$_files" "${HOME}"/.monkeydotfiles/_backup/
     fi
   done
 }
@@ -64,13 +69,13 @@ function symlink_env () {
     fi
   done
 
-  ln -fsv ~/.monkeydotfiles/aws-auth/aws-auth /usr/local/bin/aws-auth
-  ln -fsv ~/.monkeydotfiles/bash/bash_profile ~/.bash_profile
-  ln -fsv ~/.monkeydotfiles/git ~/.git
-  ln -fsv ~/.monkeydotfiles/git/gitconfig ~/.gitconfig
-  ln -fsv ~/.monkeydotfiles/liquidprompt/liquidprompt ~/.config/liquidprompt
-  ln -fsv ~/.monkeydotfiles/lpass/username ~/.lpass/username
-  ln -fsv ~/.monkeydotfiles/ssh ~/.ssh
+  ln -fsv "${HOME}"/.monkeydotfiles/aws-auth/aws-auth /usr/local/bin/aws-auth
+  ln -fsv "${HOME}"/.monkeydotfiles/bash/bash_profile "${HOME}"/.bash_profile
+  ln -fsv "${HOME}"/.monkeydotfiles/git "${HOME}"/.git
+  ln -fsv "${HOME}"/.monkeydotfiles/git/gitconfig "${HOME}"/.gitconfig
+  ln -fsv "${HOME}"/.monkeydotfiles/liquidprompt/liquidprompt "${HOME}"/.config/liquidprompt
+  ln -fsv "${HOME}"/.monkeydotfiles/lpass/username "${HOME}"/.lpass/username
+  ln -fsv "${HOME}"/.monkeydotfiles/ssh "${HOME}"/.ssh
 }
 
 function symlink_sublime () {
@@ -86,14 +91,14 @@ function symlink_sublime () {
   close_sl
 
   # Remove all the current/default installed packages or settings
-  rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/*
-  rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/*
+  rm -rf "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/*
+  rm -rf "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Packages/*
 
   # Symlink the Package Control file
-  ln -fsv ~/.monkeydotfiles/sublime/installedpackages/Package\ Control.sublime-package ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
+  ln -fsv "${HOME}"/.monkeydotfiles/sublime/installedpackages/Package\ Control.sublime-package "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
 
   # Symlink all the settings files
-  ln -fsv ~/.monkeydotfiles/sublime/user ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+  ln -fsv "${HOME}"/.monkeydotfiles/sublime/user "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 
   # Open Sublime and wait 30s for it to install everything
   echo "###############################################"
@@ -112,14 +117,14 @@ function symlink_sublime () {
 function source_bash () {
   echo
   echo "INFO: Sourcing .bash_profile"
-  source ~/.bash_profile
+  source "${HOME}"/.bash_profile
 }
 
 function fix_ssh_perms () {
   echo
   echo "INFO: Fixing SSH file permissions"
 
-  ssh_files=$(find -L ~/.ssh -depth +1 \! -name "*.pub" -type f)
+  ssh_files=$(find -L "${HOME}"/.ssh -depth +1 \! -name "*.pub" -type f)
 
   for _ssh_files in "${ssh_files[@]}" ; do
     chmod 400 "${_ssh_files}"

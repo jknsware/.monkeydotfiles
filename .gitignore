@@ -7,6 +7,7 @@
 ################################################################################
 known_hosts
 backup/
+_backup/
 
 # Sublime Package Control that's not required
 Package*Control.cache/
