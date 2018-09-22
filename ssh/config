@@ -52,6 +52,6 @@ Host bastion-sandbox
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-# Host *
-#  User jware
-#  IdentityFile ~/.ssh/ssh-jasonware20161031
+Host *
+  User jware
+  IdentityFile ~/.ssh/home/jwarejknsware
