@@ -28,12 +28,6 @@ shopt -s histappend
 # Completions
 #################
 
-# Source cht.sh completion
-# https://github.com/chubin/cheat.sh
-if [ -f /usr/local/etc/cht_completion.d/cht.sh ] ; then
-  . /usr/local/etc/cht_completion.d/cht.sh
-fi
-
 # AWS Command Completion
 # complete -C '/usr/local/bin/aws_completer' aws
 if [ -f ~/Library/Python/3.7/bin/aws_completer ] ; then
