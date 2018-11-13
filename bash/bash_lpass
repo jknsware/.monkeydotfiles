@@ -19,5 +19,7 @@ alias aws-auth-buddy-preprod='eval "$(lpass show aws-auth-security --field Param
 alias aws-auth-buddy-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-buddy-prod-arn --username)"'
 alias aws-auth-mnt-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnt-staging-arn --username)"'
 alias aws-auth-mnt-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnt-prod-arn --username)"'
+alias aws-auth-fe-prototype='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-fe-prototype-arn --username)"'
+alias aws-auth-mkt-dev='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mkt-dev-arn --username)"'
 
 echo "  Bash lpass sourced."
