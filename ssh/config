@@ -48,7 +48,7 @@ Host bastion-prod
 Host bastion-sandbox
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware-sandbox
-  Hostname ec2-54-218-219-206.us-west-2.compute.amazonaws.com
+  Hostname ec2-35-163-15-5.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
