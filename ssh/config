@@ -24,7 +24,7 @@ Host *bitbucket.org
 Host bastion-staging
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
-  HostName ec2-35-162-145-19.us-west-2.compute.amazonaws.com
+  HostName ec2-54-190-230-165.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
