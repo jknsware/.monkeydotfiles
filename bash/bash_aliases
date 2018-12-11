@@ -63,6 +63,12 @@ alias ss='ssh jware@localhost -p $@'
 # Describe EC2 instances
 alias disc-ec2="aws ec2 describe-instances | jq -r '.Reservations[].Instances[] | [.InstanceId, .NetworkInterfaces[].PrivateIpAddress, (.Tags[]|select(.Key==\"Name\")|.Value)]'"
 
+# AWS whoami
+function awswhoami () {
+  echo "The command is: aws sts get-caller-identity"
+  aws sts get-caller-identity
+}
+
 
 
 echo "  Bash aliases sourced."
