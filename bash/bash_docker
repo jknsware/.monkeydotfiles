@@ -17,6 +17,7 @@ alias dm="docker-machine"
 alias dmx="docker-machine ssh"
 alias dkps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Command}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Ports}}\t{{.Mounts}}"'
 alias dktop='docker stats --format "table {{.Name}}\t{{.ID}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.NetIO}}"'
+alias ctop='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
 
 function dke () {
   if [ -z "$1" ] ; then
