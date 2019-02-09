@@ -58,7 +58,7 @@ if [ -f ~/.monkeydotfile/git/git-completion.sh ] ; then
   souce "~/.monkeydotfile/git/git-completion.sh"
 fi
 
-# Source git completion
+# Source cheat completion
 if [ -f ~/.monkeydotfile/cheat/cheat-completion.sh ] ; then
   source "~/.monkeydotfile/cheat/cheat-completion.sh"
 fi

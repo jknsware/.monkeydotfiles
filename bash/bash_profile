@@ -4,11 +4,11 @@ function sourcebash () {
   local sourcefiles=()
 
   sourcefiles=(
-    ~/.monkeydotfiles/bash/bash_exports
-    ~/.monkeydotfiles/bash/bash_aliases
-    ~/.monkeydotfiles/bash/bash_docker
-    ~/.monkeydotfiles/bash/bash_git
-    ~/.monkeydotfiles/bash/bash_lpass
+    "${HOME}"/.monkeydotfiles/bash/bash_exports
+    "${HOME}"/.monkeydotfiles/bash/bash_aliases
+    "${HOME}"/.monkeydotfiles/bash/bash_docker
+    "${HOME}"/.monkeydotfiles/bash/bash_git
+    "${HOME}"/.monkeydotfiles/bash/bash_lpass
     )
 
   for file in "${sourcefiles[@]}"; do
@@ -25,6 +25,6 @@ umask 002
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
-[[ $- = *i* ]] && source ~/git/home/liquidprompt/liquidprompt
+[[ $- = *i* ]] && source "${HOME}"/git/home/liquidprompt/liquidprompt
 
 echo "  Bash profile sourced."

@@ -3,7 +3,7 @@
 # Run a Docker Ubuntu container for wherever you are
 function dkUbuntu() {
   echo "Running a Ubuntu Docker container and mounting the current directory \"$(pwd)\"..."
-  docker run -it --rm -v $(pwd):/root/$(basename $(pwd)) -w /root/$(basename $(pwd)) ubuntu /bin/bash
+  docker run -it --rm -v $(pwd):/root/$(basename $(pwd)) -w /root/$(basename $(pwd)) jknsware/grunt /bin/bash
 }
 
 alias dk="docker"
@@ -24,7 +24,7 @@ function dke () {
     echo "USAGE: Exec into a container."
     echo "USAGE: dke <container_name>"
   else
-    docker exec -it $1 /bin/bash
+    docker exec -it "$1" /bin/bash
   fi
 }
 
@@ -36,8 +36,8 @@ function dkflush () {
     echo "USAGE: Removes the running container and image."
     echo "USAGE: dkflush <container_name>"
   else
-    cont_name=${docker ps | grep $1 | awk '{print $1}'}
-    cont_image=${docker ps | gpre $1 | awk '{print $2}'}
+    cont_name=$(docker ps -a | grep "$1" | awk '{print $1}')
+    cont_image=$(docker ps -a | grep "$1" | awk '{print $2}')
     docker rm -f "$cont_name"
     docker rmi -f "$cont_image"
   fi
@@ -48,7 +48,7 @@ function dkln() {
     echo "USAGE: Follows the docker log of a container."
     echo "USAGE: dkln <container_name>"
   else
-    docker logs -f `docker ps | grep $1 | awk '{print $1}'`
+    docker logs -f "$(docker ps | grep "$1" | awk '{print $1}')"
   fi
 }
 
@@ -56,7 +56,7 @@ function dkstats () {
   if [ $# -eq 0 ] ; then
     docker stats --no-stream
   else
-    docker stats --no-stream | grep $1
+    docker stats --no-stream | grep "$1"
   fi
 }
 
