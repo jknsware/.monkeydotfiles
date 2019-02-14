@@ -3,7 +3,7 @@
 # Run a Docker Ubuntu container for wherever you are
 function dkUbuntu() {
   echo "Running a Ubuntu Docker container and mounting the current directory \"$(pwd)\"..."
-  docker run -it --rm -v $(pwd):/root/$(basename $(pwd)) -w /root/$(basename $(pwd)) jknsware/grunt /bin/bash
+  docker run -it --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN -v $(pwd):/mnt/$(basename $(pwd)) -w /mnt/$(basename $(pwd)) jknsware/grunt /bin/bash
 }
 
 alias dk="docker"
