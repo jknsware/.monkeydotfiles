@@ -18,7 +18,6 @@ alias aws-auth-act-prod='eval "$(lpass show aws-auth-security --field Param1; lp
 alias aws-auth-act-dev='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-act-dev-arn --username)"'
 alias aws-auth-act-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-act-staging-arn --username)"'
 alias aws-auth-fe-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-fe-staging-arn --username)"'
-alias aws-auth-fe-prepro='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-fe-prepro-arn --username)"'
 alias aws-auth-fe-preprod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-fe-preprod-arn --username)"'
 alias aws-auth-fe-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-fe-prod-arn --username)"'
 alias aws-auth-data='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-data-arn --username)"'
