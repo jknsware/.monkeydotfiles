@@ -96,4 +96,11 @@ export GPG_TTY
 # Python
 export PATH=~/Library/Python/3.7/bin:$PATH
 
+###################
+# Misc Exports
+###################
+
+# Enable Buildkit
+export DOCKER_BUILDKIT=1
+
 echo "  Bash exports sourced."
