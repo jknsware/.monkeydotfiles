@@ -14,14 +14,8 @@
   UseKeychain yes
   IdentityFile ~/.ssh/home/jasonwarejknsware
 
-# Bitbucket
-Host *bitbucket.org
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-bitbucket
-
 # Healthline Bastion Staging
-Host bastion-staging
+Host bastion-fe-staging
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-54-190-230-165.us-west-2.compute.amazonaws.com
@@ -29,7 +23,7 @@ Host bastion-staging
   ServerAliveCountMax 2
 
 # Healthline Bastion Preprod
-Host bastion-preprod
+Host bastion-fe-preprod
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-35-164-208-226.us-west-2.compute.amazonaws.com
@@ -37,10 +31,10 @@ Host bastion-preprod
   ServerAliveCountMax 2
 
 # Healthline Bastion Prod
-Host bastion-prod
+Host bastion-fe-prod
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
-  HostName ec2-35-163-98-118.us-west-2.compute.amazonaws.com
+  HostName ec2-54-201-211-183.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
@@ -65,6 +59,30 @@ Host bastion-act-prod
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-52-39-185-96.us-west-2.compute.amazonaws.com
+  ServerAliveInterval 120
+  ServerAliveCountMax 2
+
+# Healthline Greatist Staging
+Host bastion-gr8-staging
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
+  user jware
+  Hostname ec2-52-37-237-16.us-west-2.compute.amazonaws.com
+  ServerAliveInterval 120
+  ServerAliveCountMax 2
+
+# Healthline Greatist Preprod
+Host bastion-gr8-preprod
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
+  user jware
+  Hostname ec2-52-27-74-249.us-west-2.compute.amazonaws.com
+  ServerAliveInterval 120
+  ServerAliveCountMax 2
+
+# Healthline Greatist Prod
+Host bastion-gr8-prod
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
+  user jware
+  Hostname ec2-52-27-74-249.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 

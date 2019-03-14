@@ -36,6 +36,11 @@ alias sl=sublime
 # Set 'fragrant' to vagrant
 alias fragrant=vagrant
 
+# Set t12 to terraform-0.12.0-beta1
+alias t12b=/usr/local/bin/terraform-0.12.0-beta1
+
+alias t12a=/usr/local/bin/terraform-0.12.0-alpha4
+
 # Alias changing directories by specifying number of levels up
 function cd_up() {
   cd $(printf "%0.s../" $(seq 1 $1 ));

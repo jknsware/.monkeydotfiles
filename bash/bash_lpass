@@ -25,5 +25,7 @@ alias aws-auth-backend='eval "$(lpass show aws-auth-security --field Param1; lpa
 alias aws-auth-gr8-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-gr8-staging-arn --username)"'
 alias aws-auth-gr8-preprod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-gr8-preprod-arn --username)"'
 alias aws-auth-gr8-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-gr8-prod-arn --username)"'
+alias aws-auth-post-stage='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-post-stage-arn --username)"'
+alias aws-auth-post-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-post-prod-arn --username)"'
 
 echo "  Bash lpass sourced."
