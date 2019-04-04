@@ -5,7 +5,6 @@
 	],
 	"installed_packages":
 	[
-		"Anaconda",
 		"Compare Side-By-Side",
 		"Dockerfile Syntax Highlighting",
 		"GitGutter",

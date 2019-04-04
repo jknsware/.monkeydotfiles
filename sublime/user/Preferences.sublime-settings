@@ -37,8 +37,10 @@
 	[
 		"Vintage"
 	],
+	"mini_diff": false,
 	"preview_on_click": false,
 	"show_full_path": true,
+	"show_git_status": true,
 	"status_bar_brighter": true,
 	"tab_size": 2,
 	"tabs_padding_small": true,
