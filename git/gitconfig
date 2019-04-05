@@ -9,8 +9,8 @@
   # Custom graph log
   graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
-  # Delete branch
-  db = branch -D
+  # Show files changed in each commit
+  ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --numstat
 
   # Show the last commit
   last = log -1 HEAD
@@ -22,8 +22,28 @@
   remotes = remote -v
 
   # Rename branch
-  renb = branch -m
-  
+  mv = branch -m
+
+  # Delete branch
+  rmb = branch -D
+
+  # Check to see which branches have been merged to master except for master, release*, dev*
+  # https://hackernoon.com/git-going-with-aliases-a9706e23fa9c
+  rmtest = "!f() { git branch --merged | egrep -v 'master|release|dev'; }; f"
+
+  # Delete all those branches merged to master
+  rmrf = "!f() { git branch --merged | egrep -v 'master|release|dev' | xargs git branch -d; }; f"
+
+  # Delete tag from remote and origin
+  rmtag = !git tag -d $1 && git push origin :refs/tags/$1
+
+  # Get the current branch name (not so useful in itself, but used in other aliases)
+  branch-name = !git rev-parse --abbrev-ref HEAD
+
+  # Push the current branch to the remote "origin", and set it to track
+  # the upstream branch
+  publish = !git push -u origin $(git branch-name)
+
 
 [user]
   name = Jason Ware
