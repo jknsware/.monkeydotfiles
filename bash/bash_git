@@ -18,9 +18,6 @@ function gittag()
   echo "  git push origin :refs/tags/tag-name"
 }
 
-# Git - Remove all branches but master
-alias gitbr='git branch | grep -v "master" | xargs git branch -D'
-
 # Alias changing to main git repos
 alias cdm="cd ~/git/hl/infrastructure-modules"
 alias cdl="cd ~/git/hl/infrastructure-live"
