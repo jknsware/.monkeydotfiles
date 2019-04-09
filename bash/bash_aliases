@@ -9,7 +9,7 @@ alias sm='source ~/.bash_profile'
 ##### ls - ls alias configured
 #
 # Set 'ls' to all, human readable, long format, display helpful info, and color
-alias ll='ls -ahlFGL'
+alias ll='ls -ahlFG'
 
 # Set 'python' to be Python3 on cmd line
 alias python=python3
