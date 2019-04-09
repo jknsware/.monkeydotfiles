@@ -106,4 +106,7 @@ export DOCKER_BUILDKIT=1
 # NPM Token
 export NPM_TOKEN=be7e43c9-d57d-424b-ae27-9f3e7828d7df
 
+# Terragrunt cache location
+export TERRAGRUNT_DOWNLOAD=~/.terraagrunt/cache
+
 echo "  Bash exports sourced."
