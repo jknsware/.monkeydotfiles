@@ -22,7 +22,7 @@
   remotes = remote -v
 
   # Rename branch
-  mv = branch -m
+  mvb = branch -m
 
   # Delete branch
   rmb = branch -D
