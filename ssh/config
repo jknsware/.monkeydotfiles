@@ -11,7 +11,7 @@
 # Github
  Host *github.com
   AddKeysToAgent yes
-  UseKeychain yes
+  #UseKeychain yes
   IdentityFile ~/.ssh/home/jasonwarejknsware
 
 # HL Activation Dev
@@ -158,6 +158,10 @@ Host bastion-post-prod
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-Host *
+Host "10.0.*", "10.1.*",  "10.2.*"
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
+  user jware
+
+Host "!10.0.*", "!10.1.*", "!10.2.*"
   User jware
   IdentityFile ~/.ssh/home/jwarejknsware
