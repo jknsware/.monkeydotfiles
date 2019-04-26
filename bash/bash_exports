@@ -30,8 +30,8 @@ shopt -s histappend
 
 # AWS Command Completion
 # complete -C '/usr/local/bin/aws_completer' aws
-if [ -f ~/Library/Python/3.7/bin/aws_completer ] ; then
-  complete -C '~/Library/Python/3.7/bin/aws_completer' aws
+if [ -f $(brew --prefix)/bin/aws_completer ] ; then
+  complete -C '$(brew --prefix)/bin/aws_completer' aws
 fi
 
 # Enable thefuck alias
@@ -46,11 +46,6 @@ fi
 # Brew bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ] ; then
   . $(brew --prefix)/etc/bash_completion
-fi
-
-# Source LastPass cli completion
-if [[ -f /usr/local/Cellar/lastpass-cli/1.2.2/share/bash-completion/completions/lpass ]] ; then
-    source "/usr/local/Cellar/lastpass-cli/1.2.2/share/bash-completion/completions/lpass"
 fi
 
 # Source git completion
@@ -80,12 +75,6 @@ explain () {
   fi
 }
 
-# Source chtf for multi Terraform versions
-if [[ -f /usr/local/share/chtf/chtf.sh ]]; then
-    source "/usr/local/share/chtf/chtf.sh"
-    . /usr/local/share/chtf/chtf.sh 0.10.8
-fi
-
 GPG_TTY=$(tty)
 export GPG_TTY
 
@@ -107,6 +96,6 @@ export DOCKER_BUILDKIT=1
 export NPM_TOKEN=be7e43c9-d57d-424b-ae27-9f3e7828d7df
 
 # Terragrunt cache location
-export TERRAGRUNT_DOWNLOAD=~/.terraagrunt/cache
+export TERRAGRUNT_DOWNLOAD=~/.terragrunt/cache
 
 echo "  Bash exports sourced."
