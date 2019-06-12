@@ -85,6 +85,13 @@ export GPG_TTY
 # Python
 export PATH=~/Library/Python/3.7/bin:$PATH
 
+# Brew curl
+# For compilers to find curl you may need to set
+echo export PATH="/usr/local/opt/curl/bin:$PATH"
+
+export LDFLAGS="-L/usr/local/opt/curl/lib"
+export CPPFLAGS="-I/usr/local/opt/curl/include"
+
 ###################
 # Misc Exports
 ###################
