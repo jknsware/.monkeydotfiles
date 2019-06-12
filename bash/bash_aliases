@@ -65,8 +65,8 @@ alias tunnels="ps aux | grep ssh | grep L | grep -v ssh-agent | grep -v grep | a
 # The $@ needs the port number from the bastion function
 alias ss='ssh jware@localhost -p $@'
 
-# Describe EC2 instances
-alias disc-ec2="aws ec2 describe-instances | jq -r '.Reservations[].Instances[] | [.InstanceId, .NetworkInterfaces[].PrivateIpAddress, (.Tags[]|select(.Key==\"Name\")|.Value)]'"
+# List EC2 IPs
+alias ec2-ips="aws ec2 describe-instances | jq -r '.Reservations[].Instances[] | [.InstanceId, .NetworkInterfaces[].PrivateIpAddress, (.Tags[]|select(.Key==\"Name\")|.Value)]'"
 
 # AWS whoami
 function awswhoami () {
