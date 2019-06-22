@@ -95,6 +95,13 @@ export CPPFLAGS="-I/usr/local/opt/curl/include"
 # Visual Studio Code
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
+# tflint - Terraform Linter for VSCode
+# wget https://github.com/wata727/tflint/releases/download/v0.8.3/tflint_darwin_amd64.zip
+# unzip tflint_darwin_amd64.zip
+# mkdir -p /usr/local/tflint/bin
+# install tflint /usr/local/tflint/bin
+export PATH=/usr/local/bin/tflint:$PATH
+
 ###################
 # Misc Exports
 ###################
