@@ -60,5 +60,7 @@
   template = ~/.git/templates/hooks/commit-msg-template
 
 [core]
-  editor = sublime -n -w $1:2
+  editor = code --wait --new-window
   hookspath = ~/.git/templates/hooks
+[merge]
+	tool = code

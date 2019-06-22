@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ea - Alias for editing monkeydotfiles
-alias em='sl ~/.monkeydotfiles'
+alias em='code ~/.monkeydotfiles'
 
 # sm - Alias for sourcing monkeydotfiles
 alias sm='source ~/.bash_profile'
@@ -33,13 +33,12 @@ alias vdf='vagrant destroy --force'
 ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
 alias sl=sublime
 
+# Set Visual Studio Code to 'co' 
+ln -sf "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
+alias co=code
+
 # Set 'fragrant' to vagrant
 alias fragrant=vagrant
-
-# Set t12 to terraform-0.12.0-beta1
-alias t12b=/usr/local/bin/terraform-0.12.0-beta1
-
-alias t12a=/usr/local/bin/terraform-0.12.0-alpha4
 
 # Alias changing directories by specifying number of levels up
 function cd_up() {
@@ -53,17 +52,6 @@ alias cheat=~/.monkeydotfiles/cheat/cht.sh
 #############################
 # AWS and Healthline Specific
 #############################
-
-# Bastion script
-alias bastion=~/.monkeydotfiles/ssh/bastion
-
-# List the tunnels and their PIDs
-# Use `kill <pid-num>` to kill the tunnel
-alias tunnels="ps aux | grep ssh | grep L | grep -v ssh-agent | grep -v grep | awk '{print \$2, \$13}' OFS='   ' "
-
-# Create a tunnel to the target instance
-# The $@ needs the port number from the bastion function
-alias ss='ssh jware@localhost -p $@'
 
 # List EC2 IPs
 alias ec2-ips="aws ec2 describe-instances | jq -r '.Reservations[].Instances[] | [.InstanceId, .NetworkInterfaces[].PrivateIpAddress, (.Tags[]|select(.Key==\"Name\")|.Value)]'"

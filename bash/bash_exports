@@ -92,6 +92,9 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/curl/lib"
 export CPPFLAGS="-I/usr/local/opt/curl/include"
 
+# Visual Studio Code
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+
 ###################
 # Misc Exports
 ###################
