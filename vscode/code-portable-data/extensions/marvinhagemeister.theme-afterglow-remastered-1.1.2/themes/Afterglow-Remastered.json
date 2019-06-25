@@ -1,0 +1,293 @@
+{
+  "author": "Marvin Hagemeister",
+  "name": "Afterglow Remastered",
+  "colors": {
+    "editor.background": "#2E2E2E",
+    "editor.foreground": "#d6d6d6",
+    "editor.selectionBackground": "#5A647E",
+    "editorLineNumber.foreground": "#5a5a5a",
+    "editorCursor.foreground": "#FFFFFF"
+  },
+  "tokenColors": [
+    {
+      "name": "Comment",
+      "scope": ["comment"],
+      "settings": { "foreground": "#797979" }
+    },
+    {
+      "name": "Entity Name Type",
+      "scope": ["entity.name.type"],
+      "settings": { "foreground": "#FFFFFF" }
+    },
+    {
+      "name": "Entity Other Inherited Class",
+      "scope": ["entity.other.inherited-class"],
+      "settings": { "foreground": "#d6d6d6" }
+    },
+    {
+      "name": "Keyword",
+      "scope": ["keyword"],
+      "settings": { "foreground": "#cc7833" }
+    },
+    {
+      "name": "Storage",
+      "scope": ["storage"],
+      "settings": { "foreground": "#ff9834" }
+    },
+    {
+      "name": "Constant",
+      "scope": ["constant"],
+      "settings": { "foreground": "#6c99bb" }
+    },
+    {
+      "name": "Constant Variable",
+      "scope": ["constant.variable"],
+      "settings": { "foreground": "#6c99bb" }
+    },
+    {
+      "name": "Constant Character Escape",
+      "scope": ["constant.character.escape"],
+      "settings": { "foreground": "#a1617a" }
+    },
+    {
+      "name": "Constant Numeric",
+      "scope": ["constant.numeric"],
+      "settings": { "foreground": "#b4c973" }
+    },
+    {
+      "name": "Variable",
+      "scope": ["variable"],
+      "settings": { "foreground": "#d0d0ff" }
+    },
+    {
+      "name": "Variable Parameter",
+      "scope": ["variable.parameter"],
+      "settings": { "foreground": "#d6d6d6" }
+    },
+    {
+      "name": "String",
+      "scope": ["string"],
+      "settings": { "foreground": "#b4c973" }
+    },
+    {
+      "name": "Support Type",
+      "scope": ["support.type"],
+      "settings": { "foreground": "#6c99bb" }
+    },
+    {
+      "name": "Support Function",
+      "scope": ["support.function"],
+      "settings": { "foreground": "#c45837" }
+    },
+    {
+      "name": "Entity Name Function",
+      "scope": ["entity.name.function"],
+      "settings": { "foreground": "#ffc66d" }
+    },
+    {
+      "name": "Meta Class",
+      "scope": ["meta.class"],
+      "settings": { "foreground": "#d6d6d6" }
+    },
+    // HTML + jsx
+    {
+      "name": "Entity Other Attribute Name",
+      "scope": ["entity.other.attribute-name"],
+      "settings": { "foreground": "#cc7833" }
+    },
+    {
+      "name": "Meta Tag",
+      "scope": ["meta.tag"],
+      "settings": { "foreground": "#ffc66d" }
+    },
+    // JSX brackets
+    // {
+    //   "name": "Punctuation Section Embedded",
+    //   "scope": ["punctuation.section.embedded"],
+    //   "settings": { "foreground": "#c45837" }
+    // },
+    // SASS + CSS
+    {
+      "name": "[VSCODE-CUSTOM] Css Support Constant Value",
+      "scope": "support.constant.property-value.css",
+      "settings": { "foreground": "#b4c973" }
+    },
+    {
+      "name": "Keyword Other Unit",
+      "scope": ["keyword.other.unit"],
+      "settings": { "foreground": "#b4c973" }
+    },
+    {
+      "name": "[VSCODE-CUSTOM] Sass Punctuation for key-value",
+      "scope": [
+        "punctuation.separator.key-value.css",
+        "punctuation.separator.key-value.scss"
+      ],
+      "settings": { "foreground": "#797979" }
+    },
+    {
+      "name": "[VSCODE-CUSTOM] Sass Punctuation for key-value",
+      "scope": [
+        "punctuation.terminator.rule.css",
+        "punctuation.terminator.rule.scss"
+      ],
+      "settings": { "foreground": "#797979" }
+    },
+    {
+      "name": "Variable",
+      "scope": ["variable.scss", "variable.css"],
+      "settings": { "foreground": "#d6d6d6" }
+    },
+    {
+      "name": "Entity Name Tag",
+      "scope": ["entity.name.tag"],
+      "settings": { "foreground": "#ffc66d" }
+    },
+    // General
+    {
+      "name": "Punctuation Definition Bold",
+      "scope": ["punctuation.definition.bold"],
+      "settings": { "foreground": "#c45837", "fontStyle": "bold" }
+    },
+    {
+      "name": "Punctuation Definition Italic",
+      "scope": ["punctuation.definition.italic"],
+      "settings": { "foreground": "#ffc66d", "fontStyle": "italic" }
+    },
+    {
+      "name": "String Other Link",
+      "scope": ["string.other.link"],
+      "settings": { "foreground": "#6c99bb" }
+    },
+    // Markup
+    {
+      "name": "Markup Italic",
+      "scope": ["markup.italic"],
+      "settings": { "foreground": "#ffc66d", "fontStyle": "italic" }
+    },
+    {
+      "name": "Markup Bold",
+      "scope": ["markup.bold"],
+      "settings": { "foreground": "#c45837", "fontStyle": "bold" }
+    },
+    {
+      "name": "Markup Inline",
+      "scope": "markup.inline.raw",
+      "settings": { "foreground": "#b4c973" }
+    },
+    {
+      "name": "Markup Heading",
+      "scope": ["markup.heading"],
+      "settings": { "foreground": "#fffffff", "fontStyle": "bold" }
+    },
+    {
+      "name": "Markup Heading Punctuation Definition Heading",
+      "scope": ["markup.heading punctuation.definition.heading"],
+      "settings": { "foreground": "#6c99bb" }
+    },
+    // Markdown
+    {
+      "name": "[VSCODE-CUSTOM] Markdown Punctuation Definition Link",
+      "scope": "punctuation.definition.metadata.markdown",
+      "settings": { "foreground": "#797979" }
+    },
+    {
+      "name": "[VSCODE-CUSTOM] Markdown Underline Link/Image",
+      "scope": [
+        "markup.underline.link.markdown",
+        "markup.underline.link.image.markdown"
+      ],
+      "settings": { "foreground": "#797979" }
+    },
+    {
+      "name": "[VSCODE-CUSTOM] Markdown Punctuation Definition String",
+      "scope": [
+        "punctuation.definition.string.begin.markdown",
+        "punctuation.definition.string.end.markdown",
+        "punctuation.definition.metadata.markdown"
+      ],
+      "settings": { "foreground": "#797979" }
+    },
+    // TypeScript
+    {
+      "name": "Object Property",
+      "scope": ["variable.object.property.ts"],
+      "settings": { "foreground": "#d6d6d6" }
+    },
+    // Python
+    {
+      "name": "Python function call (",
+      "scope": [
+        "punctuation.definition.arguments.begin.python",
+        "punctuation.definition.arguments.end.python"
+      ],
+      "settings": { "foreground": "#d6d6d6" }
+    },
+    {
+      "name": "Python function call",
+      "scope": ["meta.function-call.python", "variable.legacy.builtin.python"],
+      "settings": { "foreground": "#ffc66d" }
+    },
+    {
+      "name": "Python function legacy call",
+      "scope": ["variable.legacy.builtin.python"],
+      "settings": { "foreground": "#c45837" }
+    },
+    {
+      "name": "Python variable",
+      "scope": ["variable.legacy.builtin.python"],
+      "settings": { "foreground": "#d0d0ff" }
+    },
+    // TSX
+    {
+      "name": "TSX Tag",
+      "scope": ["meta.tag.without-attributes.tsx"],
+      "settings": { "foreground": "#ffc66d" }
+    },
+    {
+      "name": "TSX Expression",
+      "scope": ["meta.embedded.expression.tsx"],
+      "settings": { "foreground": "#ffc66d" }
+    },
+    {
+      "name": "TSX Children",
+      "scope": ["meta.jsx.children.tsx"],
+      "settings": { "foreground": "#ab8448" }
+    },
+    // Graphql
+    {
+      "name": "GraphQL Support Type",
+      "scope": ["support.type.graphql"],
+      "settings": { "foreground": "#ffffff" }
+    },
+    {
+      "name": "GraphQL Colon",
+      "scope": [
+        "punctuation.colon.graphql",
+        "punctuation.or.graphql",
+        "punctuation.assignment.graphql"
+      ],
+      "settings": { "foreground": "#cc7833" }
+    },
+    {
+      "name": "GraphQL Brace",
+      "scope": ["meta.brace.round.graphql", "meta.brace.square.graphql"],
+      "settings": { "foreground": "#d6d6d6" }
+    },
+    {
+      "name": "GraphQL Operations",
+      "scope": ["punctuation.operation.graphql"],
+      "settings": { "foreground": "#d6d6d6" }
+    },
+    {
+      "name": "GraphQL Keywords",
+      "scope": [
+        "keyword.type.graphql",
+        "keyword.interface.graphql",
+        "meta.type.interface.graphql",
+        "keyword.implements.graphql.RRR"
+      ],
+      "settings": { "foreground": "#ff9834" }
+    }
+  ]
+}

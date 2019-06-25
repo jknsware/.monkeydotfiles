@@ -34,7 +34,7 @@ ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/loc
 alias sl=sublime
 
 # Set Visual Studio Code to 'co' 
-ln -sf "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
+ln -sf "/usr/local/bin/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
 alias co=code
 
 # Set 'fragrant' to vagrant

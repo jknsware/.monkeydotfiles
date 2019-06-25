@@ -1,0 +1,19 @@
+
+{
+    "extends": [
+        "tslint:recommended"
+    ],
+	"rules": {
+		"no-string-throw": true,
+		"no-unused-expression": true,
+		"no-duplicate-variable": true,
+		"curly": true,
+        "class-name": true,
+		"triple-equals": true,
+        "no-console": [
+            true,
+            "log"
+        ]
+	},
+	"defaultSeverity": "warning"
+}

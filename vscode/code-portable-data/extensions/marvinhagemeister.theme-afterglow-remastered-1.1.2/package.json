@@ -1,0 +1,44 @@
+{
+	"name": "theme-afterglow-remastered",
+	"displayName": "Afterglow Remastered",
+	"description": "Afterglow remastered theme for VS Code",
+	"version": "1.1.2",
+	"publisher": "marvinhagemeister",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/marvinhagemeister/vscode-theme-afterglow-remastered.git"
+	},
+	"author": "Marvin Hagemeister <marvin@marvinhagemeister.de>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/marvinhagemeister/vscode-theme-afterglow-remastered/issues"
+	},
+	"homepage": "https://github.com/marvinhagemeister/vscode-theme-afterglow-remastered#readme",
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"icon": "icon.png",
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"vscode",
+		"theme",
+		"afterglow",
+		"remastered"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Afterglow Remastered",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Afterglow-Remastered.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "adfbb3d3-fb47-4d1c-ae9c-4fd01be5c175",
+		"publisherId": "d9d84f25-344f-4bfd-bf0e-1dd69d406b55",
+		"publisherDisplayName": "Marvin Hagemeister"
+	}
+}

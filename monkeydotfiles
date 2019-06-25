@@ -14,12 +14,14 @@ function print_usage {
   echo "  - lpass"
   echo "  - ssh"
   echo "  - sublime"
+  echo "  - vscode"
   echo
   echo "Options:"
   echo
   echo -e "  --all\t\tBootstrap all the config files."
   echo -e "  --backup\tBackup all the existing config files. Good way to preserve everything while testing. Runs by default."
   echo -e "  --sublime\tOnly bootstrap Sublime Text 3 files."
+  echo -e "  --vscode\tOnly bootstrap Visual Studio Code files."
   echo
 }
 
@@ -114,6 +116,38 @@ function symlink_sublime () {
   close_sl
 }
 
+function symlink_vscode () {
+  
+  function close_co () {
+    local pid=""
+
+    pid="$(ps -A | grep '/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron' | grep -v 'grep' | awk '{print $1}')"
+    kill "$pid"
+  }
+
+  close_co
+
+  # Remove all the current/default installed packages or settings
+  # rm -rf "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/*
+  # rm -rf "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Packages/*
+
+  # Symlink the Portable Code folder
+  ln -fsv "${HOME}"/.monkeydotfiles/vscode/code-portable-data /usr/local/bin/code-portable-data/
+
+  # Open VS Code and wait 30s for it to install everything
+  echo "###############################################"
+  echo
+  echo "VS CODE IS INSTALLING PACKAGES"
+  echo "PLEASE WAIT TILL AFTER IT CLOSES TO USE VS CODE"
+  echo
+  echo "###############################################"
+  code
+  sleep 30
+
+  # Close VS Code again
+  close_co
+}
+
 function source_bash () {
   echo
   echo "INFO: Sourcing .bash_profile"
@@ -135,6 +169,7 @@ function install () {
   local _backup=false
   local _env=false
   local _sublime=false
+  local _vscode=false
 
   while [[ $# -gt 0 ]]; do
     local key="$1"
@@ -143,7 +178,7 @@ function install () {
       --all)
         _backup=true
         _env=true
-        _sublime=true
+        _vscode=true
         shift
         ;;
       --backup)
@@ -152,6 +187,10 @@ function install () {
         ;;
       --sublime)
         _sublime=true
+        shift
+        ;;
+      --vscode)
+        _vscode=true
         shift
         ;;
       --help)
@@ -165,25 +204,25 @@ function install () {
     esac
   done
 
-  if [[ "$_backup" = true && "$_env" = true && "$_sublime" = true ]] ; then
+  if [[ "$_backup" = true && "$_env" = true && "$_vscode" = true ]] ; then
     backup_files
     symlink_env
-    symlink_sublime
+    symlink_vscode
     source_bash
     fix_ssh_perms
 
     echo
     echo "monkeydotfiles --all complete"
-  elif [[ "$_backup" = true && "$_env" = false && "$_sublime" = false ]] ; then
+  elif [[ "$_backup" = true && "$_env" = false && "$_vscode" = false ]] ; then
     backup_files
 
     echo
     echo "monkeydotfiles --backup complete"
-  elif [[ "$_sublime" = true && "$_env" = false && "$_backup" = false ]]; then
-    symlink_sublime
+  elif [[ "$_vscode" = true && "$_env" = false && "$_backup" = false ]]; then
+    symlink_vscode
 
     echo
-    echo "monkeydotfiles --sublime complete"
+    echo "monkeydotfiles --vscode complete"
   fi
 }
 
