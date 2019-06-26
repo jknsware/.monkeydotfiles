@@ -14,7 +14,7 @@
   },
   "files.insertFinalNewline": true,
   "window.restoreWindows": "all",
-  "window.zoomLevel": -0.2,
+  "window.zoomLevel": -3,
   "terraform.format": {
     "ignoreExtensionsOnSave": [
       ".tfsmurf"

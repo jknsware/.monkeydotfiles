@@ -2,9 +2,9 @@
     "telemetry.machineId": "1751de3b2f0207f61616e869828844f89f3369e5dc8433a2a2ffa2e7ac7fa2a3",
     "openedPathsList": {
         "workspaces3": [
-            "file:///Users/jware/git/hl/infrastructure-modules",
-            "file:///Users/jware/git/hl/infrastructure-live",
             "file:///Users/jware/.monkeydotfiles",
+            "file:///Users/jware/git/hl/infrastructure-live",
+            "file:///Users/jware/git/hl/infrastructure-modules",
             "file:///Users/jware",
             "file:///Users/jware/git/home/hl-terraform"
         ],
@@ -52,12 +52,13 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///Users/jware/git/hl/infrastructure-modules",
-                                        "path": "/Users/jware/git/hl/infrastructure-modules",
+                                        "fsPath": "/Users/jware/.monkeydotfiles",
+                                        "external": "file:///Users/jware/.monkeydotfiles",
+                                        "path": "/Users/jware/.monkeydotfiles",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/git/hl/infrastructure-modules"
+                                    "label": "~/.monkeydotfiles"
                                 },
                                 {
                                     "id": "openRecentFolder",
@@ -74,12 +75,12 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///Users/jware/.monkeydotfiles",
-                                        "path": "/Users/jware/.monkeydotfiles",
+                                        "external": "file:///Users/jware/git/hl/infrastructure-modules",
+                                        "path": "/Users/jware/git/hl/infrastructure-modules",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/.monkeydotfiles"
+                                    "label": "~/git/hl/infrastructure-modules"
                                 },
                                 {
                                     "id": "openRecentFolder",
@@ -180,8 +181,7 @@
                     },
                     {
                         "id": "workbench.action.closeFolder",
-                        "label": "Close &&Folder",
-                        "enabled": false
+                        "label": "Close &&Folder"
                     },
                     {
                         "id": "workbench.action.closeWindow",
@@ -1063,8 +1063,8 @@
                 "userSettingsLabel": "cmd+f"
             },
             "editor.action.startFindReplaceAction": {
-                "label": "Alt+Cmd+F",
-                "userSettingsLabel": "alt+cmd+f"
+                "label": "Ctrl+Cmd+F",
+                "userSettingsLabel": "ctrl+cmd+f"
             },
             "workbench.action.findInFiles": {
                 "label": "Shift+Cmd+F",
@@ -1137,10 +1137,6 @@
             "workbench.action.showCommands": {
                 "label": "Shift+Cmd+P",
                 "userSettingsLabel": "shift+cmd+p"
-            },
-            "workbench.action.toggleFullScreen": {
-                "label": "Ctrl+Cmd+F",
-                "userSettingsLabel": "ctrl+cmd+f"
             },
             "workbench.action.toggleZenMode": {
                 "label": "⌘K Z",
@@ -1408,15 +1404,39 @@
     "pickerWorkingDir": "/Users/jware/git/hl",
     "windowsState": {
         "lastActiveWindow": {
-            "backupPath": "/usr/local/bin/code-portable-data/user-data/Backups/1561515525343",
+            "folder": "file:///Users/jware/.monkeydotfiles",
+            "backupPath": "/usr/local/bin/code-portable-data/user-data/Backups/e1db3521b837eb2097167b91855630ae",
             "uiState": {
                 "mode": 1,
-                "x": 0,
-                "y": 22,
-                "width": 1920,
-                "height": 1058
+                "x": 448,
+                "y": 156,
+                "width": 1024,
+                "height": 768
             }
         },
-        "openedWindows": []
+        "openedWindows": [
+            {
+                "folder": "file:///Users/jware/git/hl/infrastructure-live",
+                "backupPath": "/usr/local/bin/code-portable-data/user-data/Backups/63f53a9cb8c7ce25e5b890c17d68fdc1",
+                "uiState": {
+                    "mode": 1,
+                    "x": 0,
+                    "y": 551,
+                    "width": 960,
+                    "height": 529
+                }
+            },
+            {
+                "folder": "file:///Users/jware/.monkeydotfiles",
+                "backupPath": "/usr/local/bin/code-portable-data/user-data/Backups/e1db3521b837eb2097167b91855630ae",
+                "uiState": {
+                    "mode": 1,
+                    "x": 448,
+                    "y": 156,
+                    "width": 1024,
+                    "height": 768
+                }
+            }
+        ]
     }
 }
