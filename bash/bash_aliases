@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # ea - Alias for editing monkeydotfiles
-alias em='code ~/.monkeydotfiles'
+alias em='code ${HOME}/.monkeydotfiles'
 
 # sm - Alias for sourcing monkeydotfiles
-alias sm='source ~/.bash_profile'
+alias sm='source ${HOME}/.bash_profile'
 
 ##### ls - ls alias configured
 #
@@ -44,7 +44,7 @@ function cd_up() {
 alias 'cd..'='cd_up'
 
 # Cht.sh
-alias cheat=~/.monkeydotfiles/cheat/cht.sh
+alias cheat=${HOME}/.monkeydotfiles/cheat/cht.sh
 
 #############################
 # AWS and Healthline Specific

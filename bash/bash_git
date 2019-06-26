@@ -4,7 +4,7 @@
 # Git Aliases
 #################
 
-# Also check ~/.monkeydotfiles/git/gitconfig for strict git aliases
+# Also check ${HOME}/.monkeydotfiles/git/gitconfig for strict git aliases
 
 # Git - Tag help
 function gittag()
@@ -19,10 +19,10 @@ function gittag()
 }
 
 # Alias changing to main git repos
-alias cdm="cd ~/git/hl/infrastructure-modules"
-alias cdl="cd ~/git/hl/infrastructure-live"
-alias cdhl="cd ~/git/hl"
-alias cdho="cd ~/git/home"
+alias cdm="cd ${HOME}/git/hl/infrastructure-modules"
+alias cdl="cd ${HOME}/git/hl/infrastructure-live"
+alias cdhl="cd ${HOME}/git/hl"
+alias cdho="cd ${HOME}/git/home"
 
 #################
 # Git Exports

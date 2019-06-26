@@ -49,13 +49,13 @@ if [ -f $(brew --prefix)/etc/bash_completion ] ; then
 fi
 
 # Source git completion
-if [ -f ~/.monkeydotfile/git/git-completion.sh ] ; then
-  souce "~/.monkeydotfile/git/git-completion.sh"
+if [ -f ${HOME}/.monkeydotfile/git/git-completion.sh ] ; then
+  source "${HOME}/.monkeydotfile/git/git-completion.sh"
 fi
 
 # Source cheat completion
-if [ -f ~/.monkeydotfile/cheat/cheat-completion.sh ] ; then
-  source "~/.monkeydotfile/cheat/cheat-completion.sh"
+if [ -f ${HOME}/.monkeydotfile/cheat/cheat-completion.sh ] ; then
+  source "${HOME}/.monkeydotfile/cheat/cheat-completion.sh"
 fi
 
 # explain.sh begins
@@ -83,7 +83,7 @@ export GPG_TTY
 #############
 
 # Python
-export PATH=~/Library/Python/3.7/bin:$PATH
+export PATH=${HOME}/Library/Python/3.7/bin:$PATH
 
 # Brew curl
 # For compilers to find curl you may need to set
@@ -113,6 +113,6 @@ export DOCKER_BUILDKIT=1
 export NPM_TOKEN=be7e43c9-d57d-424b-ae27-9f3e7828d7df
 
 # Terragrunt cache location
-export TERRAGRUNT_DOWNLOAD=~/.terragrunt/cache
+export TERRAGRUNT_DOWNLOAD=${HOME}/.terragrunt/cache
 
 echo "  Bash exports sourced."

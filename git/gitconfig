@@ -1,5 +1,5 @@
 # [init]
-#   templatedir = ~/.git/templates
+#   templatedir = ${HOME}/.git/templates
 
 [alias]
 
@@ -57,10 +57,10 @@
   process = git-lfs filter-process
 
 [commit]
-  template = ~/.git/templates/hooks/commit-msg-template
+  template = ${HOME}/.git/templates/hooks/commit-msg-template
 
 [core]
   editor = code --wait --new-window
-  hookspath = ~/.git/templates/hooks
+  hookspath = ${HOME}/.git/templates/hooks
 [merge]
 	tool = code
