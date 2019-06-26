@@ -17,9 +17,6 @@ alias python=python3
 # Set 'python2' to be Python2 on cmd line
 alias python2=/usr/bin/python2.7
 
-# Set 'pip' to be pip3 on cmd line
-alias pip=pip3
-
 # Set 'pip2' to be pip2 on cmd line
 alias pip2='/usr/local/bin/pip'
 
