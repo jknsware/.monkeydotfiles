@@ -117,22 +117,26 @@ function symlink_sublime () {
 }
 
 function symlink_vscode () {
-  
+  local _code="/usr/local/bin/Visual Studio Code.app/Contents/Resources/app/bin/code"
+
   function close_co () {
     local pid=""
 
     pid="$(ps -A | grep '/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron' | grep -v 'grep' | awk '{print $1}')"
-    kill "$pid"
+    
+    if [[ ! -z "${pid}" ]]; then
+      echo "Killing pid# ${pid}."
+      kill "$pid"
+    fi
   }
 
   close_co
 
   # Remove all the current/default installed packages or settings
-  # rm -rf "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/*
-  # rm -rf "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Packages/*
+  rm -rf "${HOME}"/usr/local/bin/code-portable-data
 
   # Symlink the Portable Code folder
-  ln -fsv "${HOME}"/.monkeydotfiles/vscode/code-portable-data /usr/local/bin/code-portable-data/
+  ln -fsv "${HOME}"/.monkeydotfiles/vscode/code-portable-data /usr/local/bin/
 
   # Open VS Code and wait 30s for it to install everything
   echo "###############################################"
@@ -141,8 +145,14 @@ function symlink_vscode () {
   echo "PLEASE WAIT TILL AFTER IT CLOSES TO USE VS CODE"
   echo
   echo "###############################################"
-  code
-  sleep 30
+  
+  if [[ -f "${_code}" ]]; then
+    echo "Starting code"
+    code
+    sleep 30
+  else
+    echo "Code not installed. Code will install extensions _later_."
+  fi
 
   # Close VS Code again
   close_co
