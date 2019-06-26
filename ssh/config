@@ -12,11 +12,11 @@
  Host *github.com
   AddKeysToAgent yes
   #UseKeychain yes
-  IdentityFile ${HOME}/.ssh/home/jasonwarejknsware
+  IdentityFile ~/.ssh/home/jasonwarejknsware
 
 # HL Activation Dev
 Host bastion-act-dev
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-52-27-31-178.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -24,7 +24,7 @@ Host bastion-act-dev
 
 # HL Activation Prod
 Host bastion-act-prod
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-52-39-185-96.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -32,7 +32,7 @@ Host bastion-act-prod
 
 # HL Activation Stage
 Host bastion-act-staging
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-54-213-19-49.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -40,7 +40,7 @@ Host bastion-act-staging
 
 # HL Buddy Bastion Dev
 Host bastion-bud-dev
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-52-33-70-61.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -48,7 +48,7 @@ Host bastion-bud-dev
 
 # HL Buddy Bastion Preprod
 Host bastion-bud-preprod
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-52-39-36-212.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -56,7 +56,7 @@ Host bastion-bud-preprod
 
 # HL Buddy Bastion Prod
 Host bastion-bud-prod
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-52-40-244-9.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -64,7 +64,7 @@ Host bastion-bud-prod
 
 # HL Buddy Bastion QA
 Host bastion-bud-qa
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-52-88-176-86.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -72,7 +72,7 @@ Host bastion-bud-qa
 
 # HL Frontend Bastion Staging
 Host bastion-fe-staging
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-54-190-230-165.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -80,7 +80,7 @@ Host bastion-fe-staging
 
 # HL Frontend Bastion Preprod
 Host bastion-fe-preprod
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-35-164-208-226.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -88,7 +88,7 @@ Host bastion-fe-preprod
 
 # HL Frontend Bastion Prod
 Host bastion-fe-prod
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-54-201-211-183.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -96,7 +96,7 @@ Host bastion-fe-prod
 
 # HL Greatist Staging
 Host bastion-gr8-staging
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-52-37-237-16.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -104,7 +104,7 @@ Host bastion-gr8-staging
 
 # HL Greatist Preprod
 Host bastion-gr8-preprod
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-35-162-242-41.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -112,7 +112,7 @@ Host bastion-gr8-preprod
 
 # HL Greatist Prod
 Host bastion-gr8-prod
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-34-215-215-207.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -120,7 +120,7 @@ Host bastion-gr8-prod
 
 # HL Sandbox
 Host bastion-sandbox
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware-sandbox
   Hostname ec2-35-163-15-5.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -128,7 +128,7 @@ Host bastion-sandbox
 
 # HL MNT Staging
 Host bastion-mnt-staging
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-34-217-223-132.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -136,7 +136,7 @@ Host bastion-mnt-staging
 
 # HL MNT Prod
 Host bastion-mnt-prod
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-52-36-219-173.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -144,7 +144,7 @@ Host bastion-mnt-prod
 
 # HL Post Staging
 Host bastion-post-staging
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-34-218-85-19.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
@@ -152,16 +152,16 @@ Host bastion-post-staging
 
 # HL Post Prod
 Host bastion-post-prod
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-54-214-160-169.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
 Host "10.0.*", "10.1.*",  "10.2.*"
-  IdentityFile ${HOME}/.ssh/healthline/ssh-jwarehealthline-aws
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
 
 Host "!10.0.*", "!10.1.*", "!10.2.*"
   User jware
-  IdentityFile ${HOME}/.ssh/home/jwarejknsware
+  IdentityFile ~/.ssh/home/jwarejknsware

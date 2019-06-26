@@ -57,10 +57,10 @@
   process = git-lfs filter-process
 
 [commit]
-  template = ${HOME}/.git/templates/hooks/commit-msg-template
+  template = ~/.git/templates/hooks/commit-msg-template
 
 [core]
   editor = code --wait --new-window
-  hookspath = ${HOME}/.git/templates/hooks
+  hookspath = ~/.git/templates/hooks
 [merge]
 	tool = code
