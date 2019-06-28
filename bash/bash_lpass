@@ -10,8 +10,6 @@ alias aws-auth-buddy-qa='eval "$(lpass show aws-auth-security --field Param1; lp
 alias aws-auth-buddy-dev='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-buddy-dev-arn --username)"'
 alias aws-auth-buddy-preprod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-buddy-preprod-arn --username)"'
 alias aws-auth-buddy-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-buddy-prod-arn --username)"'
-alias aws-auth-mnt-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnt-staging-arn --username)"'
-alias aws-auth-mnt-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnt-prod-arn --username)"'
 alias aws-auth-fe-prototype='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-fe-prototype-arn --username)"'
 alias aws-auth-act-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-act-prod-arn --username)"'
 alias aws-auth-act-dev='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-act-dev-arn --username)"'
@@ -26,5 +24,9 @@ alias aws-auth-gr8-preprod='eval "$(lpass show aws-auth-security --field Param1;
 alias aws-auth-gr8-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-gr8-prod-arn --username)"'
 alias aws-auth-post-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-post-prod-arn --username)"'
 alias aws-auth-post-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-post-staging-arn --username)"'
+alias aws-auth-mnto-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnto-staging-arn --username)"'
+alias aws-auth-mnto-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnto-prod-arn --username)"'
+alias aws-auth-mnt-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnt-prod-arn --username)"'
+alias aws-auth-mnt-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnt-staging-arn --username)"'
 
 echo "  Bash lpass sourced."
