@@ -1,5 +1,5 @@
 # These .gitignore snippets come from: https://github.com/github/gitignore
-
+ssh/authorized_keys
 
 
 ################################################################################

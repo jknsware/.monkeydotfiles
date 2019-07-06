@@ -12,10 +12,10 @@ alias sm='source ${HOME}/.bash_profile'
 alias ll='ls -ahlFG'
 
 # Set 'python' to be Python3 on cmd line
-alias python=python3
+alias py3=python3
 
 # Set 'python2' to be Python2 on cmd line
-alias python2=/usr/bin/python2.7
+alias py2=/usr/bin/python2.7
 
 # Set 'pip2' to be pip2 on cmd line
 alias pip2='/usr/local/bin/pip'
