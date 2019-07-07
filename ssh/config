@@ -166,10 +166,10 @@ Host bastion-smnt-staging
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-Host "10.0.*", "10.1.*",  "10.2.*"
+Host  10.0.* 10.1.* 10.2.*
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
 
-Host "!10.0.*", "!10.1.*", "!10.2.*"
+Host * !10.0.* !10.1.* !10.2.*
   User jware
   IdentityFile ~/.ssh/home/jwarejknsware
