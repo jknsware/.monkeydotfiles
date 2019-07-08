@@ -3,7 +3,7 @@
 #  ProxyCommand ssh bastion1.bfsvctest.net -W %h:%p -A
 #  IdentitiesOnly yes
 
-# BorrowersFirst 
+# BorrowersFirst
 # Host 10.5.* *.bfsvcprod.net !bastion*.bfsvcprod.net !10.5.128.100
 #   ProxyCommand ssh bastion1.bfsvcprod.net -W %h:%p -A
 #   IdentitiesOnly yes
@@ -38,32 +38,32 @@ Host bastion-act-staging
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-# HL Buddy Bastion Dev
-Host bastion-bud-dev
+# HL Together Bastion Dev
+Host bastion-tg-dev
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-52-33-70-61.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-# HL Buddy Bastion Preprod
-Host bastion-bud-preprod
+# HL Together Bastion Preprod
+Host bastion-tg-preprod
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-52-39-36-212.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-# HL Buddy Bastion Prod
-Host bastion-bud-prod
+# HL Together Bastion Prod
+Host bastion-tg-prod
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-52-40-244-9.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-# HL Buddy Bastion QA
-Host bastion-bud-qa
+# HL Together Bastion QA
+Host bastion-tg-qa
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-52-88-176-86.us-west-2.compute.amazonaws.com
