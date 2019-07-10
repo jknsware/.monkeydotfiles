@@ -38,8 +38,8 @@ Host bastion-act-staging
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-# HL Together Bastion Dev
-Host bastion-tg-dev
+# HL Together Bastion Stage
+Host bastion-tg-staging
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
   HostName ec2-52-33-70-61.us-west-2.compute.amazonaws.com
