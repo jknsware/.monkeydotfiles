@@ -42,7 +42,7 @@ Host bastion-act-staging
 Host bastion-tg-staging
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
-  HostName ec2-52-33-70-61.us-west-2.compute.amazonaws.com
+  HostName ec2-52-27-24-61.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
@@ -126,8 +126,8 @@ Host bastion-sandbox
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-# HL MNT Staging
-Host bastion-mnt-staging
+# HL MNT Original Staging
+Host bastion-mnto-staging
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-34-217-223-132.us-west-2.compute.amazonaws.com
@@ -135,7 +135,7 @@ Host bastion-mnt-staging
   ServerAliveCountMax 2
 
 # HL MNT Prod
-Host bastion-mnt-prod
+Host bastion-mnto-prod
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
   Hostname ec2-52-36-219-173.us-west-2.compute.amazonaws.com
@@ -159,17 +159,17 @@ Host bastion-post-prod
   ServerAliveCountMax 2
 
 # HL Site/MNT Staging
-Host bastion-smnt-staging
+Host bastion-mnt-staging
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
-  Hostname ec2-34-208-174-225.us-west-2.compute.amazonaws.com
+  Hostname ec2-52-41-255-5.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-Host  10.0.* 10.1.* 10.2.*
+Host  10.*
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
 
-Host * !10.0.* !10.1.* !10.2.*
+Host * !10.*
   User jware
   IdentityFile ~/.ssh/home/jwarejknsware

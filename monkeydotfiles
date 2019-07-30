@@ -13,14 +13,12 @@ function print_usage {
   echo "  - liquidprompt"
   echo "  - lpass"
   echo "  - ssh"
-  echo "  - sublime"
   echo "  - vscode"
   echo
   echo "Options:"
   echo
   echo -e "  --all\t\tBootstrap all the config files."
   echo -e "  --backup\tBackup all the existing config files. Good way to preserve everything while testing. Runs by default."
-  echo -e "  --sublime\tOnly bootstrap Sublime Text 3 files."
   echo -e "  --vscode\tOnly bootstrap Visual Studio Code files."
   echo
 }
@@ -80,42 +78,6 @@ function symlink_env () {
   ln -fsv "${HOME}"/.monkeydotfiles/ssh "${HOME}"/.ssh
 }
 
-function symlink_sublime () {
-  
-  function close_sl () {
-    local pid=""
-
-    pid="$(ps -A | grep '/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text' | grep -v 'grep' | awk '{print $1}')"
-
-    kill "$pid"
-  }
-
-  close_sl
-
-  # Remove all the current/default installed packages or settings
-  rm -rf "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/*
-  rm -rf "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Packages/*
-
-  # Symlink the Package Control file
-  ln -fsv "${HOME}"/.monkeydotfiles/sublime/installedpackages/Package\ Control.sublime-package "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
-
-  # Symlink all the settings files
-  ln -fsv "${HOME}"/.monkeydotfiles/sublime/user "${HOME}"/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-
-  # Open Sublime and wait 30s for it to install everything
-  echo "###############################################"
-  echo
-  echo "SUBLIME IS INSTALLING PACKAGES"
-  echo "PLEASE WAIT TILL AFTER IT CLOSES TO USE SUBLIME"
-  echo
-  echo "###############################################"
-  sublime
-  sleep 30
-
-  # Close Sublime again
-  close_sl
-}
-
 function symlink_vscode () {
   local _code="/usr/local/bin/Visual Studio Code.app/Contents/Resources/app/bin/code"
 
@@ -171,12 +133,13 @@ function fix_ssh_perms () {
   ssh_files=$(find -L "${HOME}"/.ssh -depth +1 \! -name "*.pub" -type f)
 
   for _ssh_files in "${ssh_files[@]}" ; do
-    chmod 400 "${_ssh_files}"
+    chmod 600 "${_ssh_files}"
   done
 }
 
 function install () {
   local _backup=false
+  local _bootstrap=false
   local _env=false
   local _sublime=false
   local _vscode=false
@@ -185,7 +148,7 @@ function install () {
     local key="$1"
 
     case "$key" in
-      --all)
+      --)
         _backup=true
         _env=true
         _vscode=true
@@ -195,8 +158,8 @@ function install () {
         _backup=true
         shift
         ;;
-      --sublime)
-        _sublime=true
+      --bootstrap)
+        _bootstrap=true
         shift
         ;;
       --vscode)
@@ -214,7 +177,7 @@ function install () {
     esac
   done
 
-  if [[ "$_backup" = true && "$_env" = true && "$_vscode" = true ]] ; then
+  if [[ "$_bootstrap" = true ]] ; then
     backup_files
     symlink_env
     symlink_vscode
@@ -228,8 +191,13 @@ function install () {
 
     echo
     echo "monkeydotfiles --backup complete"
-  elif [[ "$_vscode" = true && "$_env" = false && "$_backup" = false ]]; then
+  elif [[ "$_vscode" = true && "$_fixssh" = true && "$_env" = false && "$_backup" = false ]]; then
     symlink_vscode
+
+    echo
+    echo "monkeydotfiles --vscode complete"
+    elif [[ "$_fixssh" = true && "$_vscode" = false && "$_env" = false && "$_backup" = false ]]; then
+    fix_ssh_perms
 
     echo
     echo "monkeydotfiles --vscode complete"

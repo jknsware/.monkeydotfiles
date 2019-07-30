@@ -46,6 +46,27 @@ alias 'cd..'='cd_up'
 # Cht.sh
 alias cheat=${HOME}/.monkeydotfiles/cheat/cht.sh
 
+# terragrunt functions
+function tgaaa() {
+  echo "Terragrunt Apply Auto-Approve"
+  terragrunt apply -auto-approve
+}
+
+function tgp() {
+  echo "Terragrunt Plan"
+  terragrunt plan
+}
+
+function tgo() {
+  echo "Terragrunt Output"
+  terragrunt output
+}
+
+function tgddd() {
+  echo "BURN IT ALL DOWN!!!"
+  terragrunt destroy
+}
+
 #############################
 # AWS and Healthline Specific
 #############################
