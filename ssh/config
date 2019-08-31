@@ -8,6 +8,10 @@
 #   ProxyCommand ssh bastion1.bfsvcprod.net -W %h:%p -A
 #   IdentitiesOnly yes
 
+# Disable IPv6
+Host *
+  AddressFamily inet
+
 # Github
  Host *github.com
   AddKeysToAgent yes
@@ -58,7 +62,7 @@ Host bastion-tg-preprod
 Host bastion-tg-prod
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   User jware
-  HostName ec2-52-40-244-9.us-west-2.compute.amazonaws.com
+  HostName ec2-52-33-16-68.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
@@ -156,6 +160,7 @@ Host bastion-post-prod
   user jware
   Hostname ec2-54-214-160-169.us-west-2.compute.amazonaws.com
   ServerAliveInterval 120
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   ServerAliveCountMax 2
 
 # HL Site/MNT Staging
@@ -166,10 +171,22 @@ Host bastion-mnt-staging
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
-Host  10.*
+# HL Backend
+Host bastion-backend
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
   user jware
+  Hostname ec2-52-40-40-94.us-west-2.compute.amazonaws.com
+  ServerAliveInterval 120
+  ServerAliveCountMax 2
+
+Host  10.*
+  user jware
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
+  ServerAliveInterval 120
+  ServerAliveCountMax 2
 
 Host * !10.*
   User jware
   IdentityFile ~/.ssh/home/jwarejknsware
+  ServerAliveInterval 120
+  ServerAliveCountMax 2

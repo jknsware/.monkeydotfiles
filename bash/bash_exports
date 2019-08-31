@@ -58,6 +58,10 @@ if [ -f ${HOME}/.monkeydotfile/cheat/cheat-completion.sh ] ; then
   source "${HOME}/.monkeydotfile/cheat/cheat-completion.sh"
 fi
 
+if [ ! -f /usr/local/bin/pip ] ; then
+  ln -s /usr/local/bin/pip3 /usr/local/bin/pip
+fi
+
 # explain.sh begins
 # https://www.tecmint.com/explain-shell-commands-in-the-linux-shell/
 explain () {

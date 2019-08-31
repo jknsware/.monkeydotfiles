@@ -11,14 +11,11 @@ alias sm='source ${HOME}/.bash_profile'
 # Set 'ls' to all, human readable, long format, display helpful info, and color
 alias ll='ls -ahlFG'
 
-# Set 'python' to be Python3 on cmd line
+# Set 'py3' to be Python3 on cmd line
 alias py3=python3
 
-# Set 'python2' to be Python2 on cmd line
-alias py2=/usr/bin/python2.7
-
 # Set 'pip2' to be pip2 on cmd line
-alias pip2='/usr/local/bin/pip'
+# alias pip='/usr/local/bin/pip3'
 
 # Set 'gc' to be gcloud on cmd line
 alias gc=gcloud
@@ -30,7 +27,7 @@ alias vdf='vagrant destroy --force'
 ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
 alias sl=sublime
 
-# Set Visual Studio Code to 'co' 
+# Set Visual Studio Code to 'co'
 ln -sf "/usr/local/bin/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
 alias co=code
 
@@ -52,9 +49,9 @@ function tgaaa() {
   terragrunt apply -auto-approve
 }
 
-function tgp() {
-  echo "Terragrunt Plan"
-  terragrunt plan
+function tgpl() {
+  echo "Terragrunt Plan | Landscape"
+  terragrunt plan | landscape
 }
 
 function tgo() {
@@ -63,9 +60,11 @@ function tgo() {
 }
 
 function tgddd() {
-  echo "BURN IT ALL DOWN!!!"
+  echo "DIE DIE DIE!!!"
   terragrunt destroy
 }
+
+alias dkgrunt="docker run -it --rm -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN} --mount type=bind,source=/Users/jware/.ssh,target=/root/.ssh,readonly --mount type=bind,source=/Users/jware/.aws,target=/root/.aws,readonly --name terragrunt --hostname docker-terragrunt jknsware/docker-terragrunt:0.7"
 
 #############################
 # AWS and Healthline Specific
