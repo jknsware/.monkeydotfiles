@@ -119,4 +119,7 @@ export NPM_TOKEN=be7e43c9-d57d-424b-ae27-9f3e7828d7df
 # Terragrunt cache location
 export TERRAGRUNT_DOWNLOAD=${HOME}/.terragrunt/cache
 
+# CirleCI Token
+export CIRCLECI_TOKEN=20258596808ca5408283fd04bda4dcccfe053015
+
 echo "  Bash exports sourced."

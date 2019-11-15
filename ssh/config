@@ -171,6 +171,14 @@ Host bastion-mnt-staging
   ServerAliveInterval 120
   ServerAliveCountMax 2
 
+# HL Site/MNT Prod
+Host bastion-mnt-prod
+  IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
+  user jware
+  Hostname ec2-54-191-169-179.us-west-2.compute.amazonaws.com
+  ServerAliveInterval 120
+  ServerAliveCountMax 2
+
 # HL Backend
 Host bastion-backend
   IdentityFile ~/.ssh/healthline/ssh-jwarehealthline-aws
