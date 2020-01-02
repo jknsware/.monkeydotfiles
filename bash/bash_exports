@@ -122,4 +122,7 @@ export TERRAGRUNT_DOWNLOAD=${HOME}/.terragrunt/cache
 # CirleCI Token
 export CIRCLECI_TOKEN=20258596808ca5408283fd04bda4dcccfe053015
 
+# PagerDuty Token
+export PAGERDUTY_TOKEN=nh_EzBzBmBsBA-CNUNUn
+
 echo "  Bash exports sourced."

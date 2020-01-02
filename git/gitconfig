@@ -27,12 +27,7 @@
   # Delete branch
   rmb = branch -D
 
-  # Check to see which branches have been merged to master except for master, release*, dev*
   # https://hackernoon.com/git-going-with-aliases-a9706e23fa9c
-  rmtest = "!f() { git branch --merged | egrep -v 'master|release|dev'; }; f"
-
-  # Delete all those branches merged to master
-  rmrf = "!f() { git branch --merged | egrep -v 'master|release|dev' | xargs git branch -d; }; f"
 
   # Delete tag from remote and origin
   rmtag = !git tag -d $1 && git push origin :refs/tags/$1
