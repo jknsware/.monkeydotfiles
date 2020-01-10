@@ -33,7 +33,6 @@ files_list=(
   "${HOME}"/.gitconfig
   "${HOME}"/.config/liquidprompt
   "${HOME}"/.lpass/username
-  "${HOME}"/.ssh
 )
 
 function backup_files () {

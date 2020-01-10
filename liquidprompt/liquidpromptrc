@@ -12,6 +12,13 @@
 # BEHAVIOUR #
 #############
 
+# Set the cursor to be on a new line
+# Comment out the line to unset
+# Ex.
+# [user:~/path/to/directory/ ±
+# $ <cursor_prompt>
+LP_PS1_POSTFIX="\n$ "
+
 # Display the battery level when the level is below this threshold.
 # Recommended value is 75
 LP_BATTERY_THRESHOLD=50
@@ -161,12 +168,5 @@ LP_ENABLE_SSH_COLORS=0
 # Specify a list of complete and colon (":") separated paths in which, all vcs
 # will be disabled
 LP_DISABLED_VCS_PATH=""
-
-# Set the cursor to be on a new line
-# Comment out the line to unset
-# Ex.
-# [user:~/path/to/directory/ ±
-# $ <cursor_prompt>
-LP_PS1_POSTFIX="\n$ "
 
 # vim: set et sts=4 sw=4 tw=120 ft=sh:
