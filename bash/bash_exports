@@ -87,7 +87,10 @@ export GPG_TTY
 #############
 
 # Python
-export PATH=${HOME}/Library/Python/3.7/bin:$PATH
+# python@3.8 is keg-only, which means it was not symlinked into /usr/local,
+# because this is an alternate version of another formula.
+# If you need to have python@3.8 first in your PATH run:
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 
 # Brew curl
 # For compilers to find curl you may need to set
@@ -105,6 +108,10 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 # mkdir -p /usr/local/tflint/bin
 # install tflint /usr/local/tflint/bin
 export PATH=/usr/local/bin/tflint:$PATH
+
+# tgenv
+# https://github.com/cunymatthieu/tgenv
+export PATH=/Users/jware/git/etc/tgenv/bin:$PATH
 
 ###################
 # Misc Exports
