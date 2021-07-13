@@ -6,7 +6,6 @@
 alias aws-auth-security='eval "$(lpass show aws-auth-security --field Param1; lpass show aws-auth-security --field Param2)"'
 alias aws-auth-shared_services='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-shared_services-arn --username)"'
 alias aws-auth-sandbox='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-sandbox-arn --username)"'
-alias aws-auth-fe-prototype='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-fe-prototype-arn --username)"'
 alias aws-auth-act-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-act-prod-arn --username)"'
 alias aws-auth-act-dev='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-act-dev-arn --username)"'
 alias aws-auth-act-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-act-staging-arn --username)"'
@@ -21,12 +20,13 @@ alias aws-auth-gr8-prod='eval "$(lpass show aws-auth-security --field Param1; lp
 alias aws-auth-post-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-post-staging-arn --username)"'
 alias aws-auth-mnt-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnt-prod-arn --username)"'
 alias aws-auth-mnt-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnt-staging-arn --username)"'
-alias aws-auth-mnto-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnto-staging-arn --username)"'
-alias aws-auth-mnto-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mnto-prod-arn --username)"'
 alias aws-auth-tg-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-tg-prod-arn --username)"'
 alias aws-auth-tg-preprod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-tg-preprod-arn --username)"'
 alias aws-auth-tg-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-tg-staging-arn --username)"'
 alias aws-auth-editorial='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-editorial-arn --username)"'
 alias aws-auth-post-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-post-prod-arn --username)"'
+alias aws-auth-psy-staging='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-psy-staging-arn --username)"'
+alias aws-auth-psy-prod='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-psy-prod-arn --username)"'
+alias aws-auth-mkt-dev='eval "$(lpass show aws-auth-security --field Param1; lpass show hl-mkt-dev-arn --username)"'
 
 echo "  Bash lpass sourced."

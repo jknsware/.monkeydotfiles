@@ -1,9 +1,0 @@
-// These settings override both User and Default settings for the JSON syntax
-{
-    // The number of spaces a tab is considered equal to
-    "tab_size": 4,
-
-        // Set to true to ensure the last line of the file ends in a newline
-    // character when saving
-    "ensure_newline_at_eof_on_save": false
-}

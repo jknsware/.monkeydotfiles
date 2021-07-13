@@ -126,6 +126,13 @@ export NPM_TOKEN=be7e43c9-d57d-424b-ae27-9f3e7828d7df
 # Terragrunt cache location
 export TERRAGRUNT_DOWNLOAD=${HOME}/.terragrunt/cache
 
+# Terraform plugin location
+export TF_PLUGIN_CACHE_DIR=${HOME}/.terraform.d/plugin-cache
+
+# Terragrunt Local
+# Use local IAM role instead of Atlantis
+export TERRAGRUNT_LOCAL=true
+
 # CirleCI Token
 export CIRCLECI_TOKEN=20258596808ca5408283fd04bda4dcccfe053015
 
@@ -135,7 +142,7 @@ export PAGERDUTY_TOKEN=nh_EzBzBmBsBA-CNUNUn
 # New Relic
 export NEW_RELIC_ACCOUNT_ID=2747348
 export NEW_RELIC_API_KEY=NRAK-9NEORELT7HG07XR54FMLZ9R0FWW
-# export NEW_RELIC_ADMIN_API_KEY=
+export NEW_RELIC_ADMIN_API_KEY=NRAA-1b2ec86c466160327bf88445a00
 export NEW_RELIC_REGION=us
 
 echo "  Bash exports sourced."

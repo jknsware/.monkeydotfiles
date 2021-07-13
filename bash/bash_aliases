@@ -50,8 +50,8 @@ function tgaaa() {
 }
 
 function tgpl() {
-  echo "Terragrunt Plan | Landscape"
-  terragrunt plan | landscape
+  echo "Terragrunt Plan"
+  terragrunt plan
 }
 
 function tgo() {
