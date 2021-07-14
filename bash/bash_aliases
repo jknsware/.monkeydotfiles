@@ -24,8 +24,8 @@ alias gc=gcloud
 alias vdf='vagrant destroy --force'
 
 # Set 'sl' to Sublime
-ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
-alias sl=sublime
+# ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
+# alias sl=sublime
 
 # Set Visual Studio Code to 'co'
 ln -sf "/usr/local/bin/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
