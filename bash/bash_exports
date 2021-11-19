@@ -30,8 +30,8 @@ shopt -s histappend
 
 # AWS Command Completion
 # complete -C '/usr/local/bin/aws_completer' aws
-if [ -f $(brew --prefix)/bin/aws_completer ] ; then
-  complete -C '$(brew --prefix)/bin/aws_completer' aws
+if [ -f /usr/local/bin/aws_completer ] ; then
+  complete -C /usr/local/bin/aws_completer aws
 fi
 
 # Enable thefuck alias
@@ -41,14 +41,16 @@ if [ -f /usr/local/bin/fuck ] ; then
 fi
 
 # kubectl completion
-# source <(kubectl completion bash)
+# https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-mac/
+source <(kubectl completion bash)
 
 # Brew bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ] ; then
-  . $(brew --prefix)/etc/bash_completion
+if [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] ; then
+  . /opt/homebrew/etc/profile.d/bash_completion.sh
 fi
 
 # Source git completion
+# Source - https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 if [ -f ${HOME}/.monkeydotfile/git/git-completion.sh ] ; then
   source "${HOME}/.monkeydotfile/git/git-completion.sh"
 fi
@@ -56,11 +58,7 @@ fi
 # Source cheat completion
 if [ -f ${HOME}/.monkeydotfile/cheat/cheat-completion.sh ] ; then
   source "${HOME}/.monkeydotfile/cheat/cheat-completion.sh"
-fi
-
-if [ ! -f /usr/local/bin/pip ] ; then
-  ln -s /usr/local/bin/pip3 /usr/local/bin/pip
-fi
+fi;
 
 # explain.sh begins
 # https://www.tecmint.com/explain-shell-commands-in-the-linux-shell/
@@ -87,14 +85,11 @@ export GPG_TTY
 #############
 
 # Python
-# python@3.8 is keg-only, which means it was not symlinked into /usr/local,
-# because this is an alternate version of another formula.
-# If you need to have python@3.8 first in your PATH run:
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+# Python is controlled with pyenv. Use it.
 
 # Brew curl
 # For compilers to find curl you may need to set
-export PATH="/usr/local/opt/curl/bin:$PATH"
+# export PATH="/usr/local/opt/curl/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/curl/lib"
 export CPPFLAGS="-I/usr/local/opt/curl/include"
@@ -107,15 +102,14 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 # unzip tflint_darwin_amd64.zip
 # mkdir -p /usr/local/tflint/bin
 # install tflint /usr/local/tflint/bin
-export PATH=/usr/local/bin/tflint:$PATH
-
-# tgenv
-# https://github.com/cunymatthieu/tgenv
-export PATH=/Users/jware/git/etc/tgenv/bin:$PATH
+# export PATH=/usr/local/bin/tflint:$PATH
 
 ###################
 # Misc Exports
 ###################
+
+# Brew export
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Enable Buildkit
 export DOCKER_BUILDKIT=1
@@ -134,15 +128,15 @@ export TF_PLUGIN_CACHE_DIR=${HOME}/.terraform.d/plugin-cache
 export TERRAGRUNT_LOCAL=true
 
 # CirleCI Token
-export CIRCLECI_TOKEN=20258596808ca5408283fd04bda4dcccfe053015
+# export CIRCLECI_TOKEN=20258596808ca5408283fd04bda4dcccfe053015
 
 # PagerDuty Token
-export PAGERDUTY_TOKEN=nh_EzBzBmBsBA-CNUNUn
+# export PAGERDUTY_TOKEN=nh_EzBzBmBsBA-CNUNUn
 
 # New Relic
-export NEW_RELIC_ACCOUNT_ID=2747348
-export NEW_RELIC_API_KEY=NRAK-9NEORELT7HG07XR54FMLZ9R0FWW
-export NEW_RELIC_ADMIN_API_KEY=NRAA-1b2ec86c466160327bf88445a00
-export NEW_RELIC_REGION=us
+# export NEW_RELIC_ACCOUNT_ID=2747348
+# export NEW_RELIC_API_KEY=NRAK-9NEORELT7HG07XR54FMLZ9R0FWW
+# export NEW_RELIC_ADMIN_API_KEY=NRAA-1b2ec86c466160327bf88445a00
+# export NEW_RELIC_REGION=us
 
 echo "  Bash exports sourced."

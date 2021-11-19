@@ -32,7 +32,6 @@ files_list=(
   "${HOME}"/.gitattributes
   "${HOME}"/.gitconfig
   "${HOME}"/.config/liquidprompt
-  "${HOME}"/.lpass/username
 )
 
 function backup_files () {
@@ -72,13 +71,12 @@ function symlink_env () {
   ln -fsv "${HOME}"/.monkeydotfiles/bash/bash_profile "${HOME}"/.bash_profile
   ln -fsv "${HOME}"/.monkeydotfiles/git "${HOME}"/.git
   ln -fsv "${HOME}"/.monkeydotfiles/git/gitconfig "${HOME}"/.gitconfig
-  ln -fsv "${HOME}"/.monkeydotfiles/liquidprompt/liquidprompt "${HOME}"/.config/liquidprompt
-  ln -fsv "${HOME}"/.monkeydotfiles/lpass/username "${HOME}"/.lpass/username
+  ln -fsv "${HOME}"/.monkeydotfiles/liquidprompt "${HOME}"/liquidprompt
   ln -fsv "${HOME}"/.monkeydotfiles/ssh "${HOME}"/.ssh
 }
 
 function symlink_vscode () {
-  local _code="/usr/local/bin/Visual Studio Code.app/Contents/Resources/app/bin/code"
+  local _code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 
   function close_co () {
     local pid=""

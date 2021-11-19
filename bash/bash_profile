@@ -22,11 +22,14 @@ sourcebash
 umask 002
 
 # iterm2 Shell Integration
-#test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+if [[ -f "${HOME}/.iterm2_shell_integration.bash" ]]; then
+  source "${HOME}/.iterm2_shell_integration.bash"
+fi
 
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
 if [ -f ~/liquidprompt/liquidprompt ]; then
-  . ~/liquidprompt/liquidprompt
+  [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 fi
 
 echo "  Bash profile sourced."
+
