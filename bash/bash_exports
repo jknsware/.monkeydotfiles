@@ -36,8 +36,18 @@ fi
 
 # Enable thefuck alias
 # https://github.com/nvbn/thefuck
-if [ -f /usr/local/bin/fuck ] ; then
+if [ -f /opt/homebrew/bin/fuck ] ; then
   eval $(thefuck --alias)
+fi
+
+# Source gcloud
+if [ -f /usr/local/bin/google-cloud-sdk/path.bash.inc ] ; then
+  source "/usr/local/bin/google-cloud-sdk/path.bash.inc"
+fi
+
+# Source gcloud completion
+if [ -f /usr/local/bin/google-cloud-sdk/completion.bash.inc ] ; then
+  source "/usr/local/bin/google-cloud-sdk/completion.bash.inc"
 fi
 
 # kubectl completion
@@ -58,7 +68,10 @@ fi
 # Source cheat completion
 if [ -f ${HOME}/.monkeydotfile/cheat/cheat-completion.sh ] ; then
   source "${HOME}/.monkeydotfile/cheat/cheat-completion.sh"
-fi;
+fi
+
+# Source UJET Bash Aliases
+source /Users/jason/.ujet_bash_aliases
 
 # explain.sh begins
 # https://www.tecmint.com/explain-shell-commands-in-the-linux-shell/
