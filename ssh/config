@@ -10,10 +10,10 @@
 
 Host *
    User jasonware
-   IdentityFile ~/.ssh/id_rsa
-   PreferredAuthentications publickey
-   AddKeysToAgent yes
-   UseKeychain yes
+#   IdentityFile ~/.ssh/id_rsa
+#   PreferredAuthentications publickey
+#   AddKeysToAgent yes
+#   UseKeychain yes
 
 ############################################################
 #                      GitHub                              #
