@@ -19,9 +19,9 @@ function gittag()
 }
 
 # Alias changing to main git repos
-alias cdm="cd ${HOME}/git/hl/infrastructure-modules"
-alias cdl="cd ${HOME}/git/hl/infrastructure-live"
-alias cdhl="cd ${HOME}/git/hl"
+alias cdm="cd ${HOME}/git/ujet/ujet-infrastructure-modules"
+alias cdl="cd ${HOME}/git/ujet/ujet-infrastructure-live"
+alias cduj="cd ${HOME}/git/ujet"
 alias cdho="cd ${HOME}/git/home"
 
 #################

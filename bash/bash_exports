@@ -61,7 +61,7 @@ fi
 
 # Source git completion
 # Source - https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-if [ -f ${HOME}/.monkeydotfile/git/git-completion.sh ] ; then
+if [ -f ${HOME}/.monkeydotfiles/git/git-completion.sh ] ; then
   source "${HOME}/.monkeydotfiles/git/git-completion.sh"
 fi
 
