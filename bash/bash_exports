@@ -97,9 +97,6 @@ export GPG_TTY
 # Pathing
 #############
 
-# Python
-# Python is controlled with pyenv. Use it.
-
 # Brew curl
 # For compilers to find curl you may need to set
 # export PATH="/usr/local/opt/curl/bin:$PATH"
@@ -110,12 +107,12 @@ export CPPFLAGS="-I/usr/local/opt/curl/include"
 # Visual Studio Code
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
-# tflint - Terraform Linter for VSCode
-# wget https://github.com/wata727/tflint/releases/download/v0.8.3/tflint_darwin_amd64.zip
-# unzip tflint_darwin_amd64.zip
-# mkdir -p /usr/local/tflint/bin
-# install tflint /usr/local/tflint/bin
-# export PATH=/usr/local/bin/tflint:$PATH
+# Python
+# Python is controlled with pyenv. Use it.
+
+# Pyenv PATH export
+# Remember to `pyenv global 3.9.12 2.7.18` or whatever versions I have installed
+export PATH="$(pyenv root)/shims:$PATH"
 
 ###################
 # Misc Exports
