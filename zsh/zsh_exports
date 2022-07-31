@@ -1,32 +1,18 @@
-#!/bin/bash
+#!/bin/zsh
 
-#####################
-# History Control
-#####################
-
-export HISTSIZE=20000
-export HISTFILESIZE=$HISTSIZE
-export HISTTIMEFORMAT="[%F %T] "
-# Ignore duplicates written in sequence
+export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
+export HISTSIZE=50000                                 # History lines stored in mememory.
+export SAVEHIST=50000                                 # History lines stored on disk.
 export HISTCONTROL=ignoredups
 export HISTIGNORE="&:l:ls:lt:la:lsa:ll:exit:history"
+setopt INC_APPEND_HISTORY                             # Immediately append commands to history file.
+setopt HIST_IGNORE_ALL_DUPS                           # Never add duplicate entries.
+setopt HIST_IGNORE_SPACE                              # Ignore commands that start with a space.
+setopt HIST_REDUCE_BLANKS                             # Remove unnecessary blank lines.
 
-# history_sync: After every command, append latest commands to hist file, then clear shell history, and re-read all from file
-# https://github.com/RichVel/nicer-bash-prompt/blob/master/nicer-bash-prompt
-# https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
-history_sync() { 
-  history -a; history -c; history -r; 
-}
-
-# Force history commit after every command:
-PROMPT_COMMAND="$history_sync"
-
-# Append to the history file, don't overwrite it
-shopt -s histappend
-
-#################
+###############################################################################
 # Completions
-#################
+###############################################################################
 
 # AWS Command Completion
 # complete -C '/usr/local/bin/aws_completer' aws
@@ -48,16 +34,11 @@ fi
 # https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-mac/
 source <(kubectl completion bash)
 
-# Brew bash completion
-if [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] ; then
-  . /opt/homebrew/etc/profile.d/bash_completion.sh
-fi
-
 # Source git completion
 # Source - https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-if [ -f ${HOME}/.monkeydotfiles/git/git-completion.sh ] ; then
-  source "${HOME}/.monkeydotfiles/git/git-completion.sh"
-fi
+# if [ -f ${HOME}/.monkeydotfiles/git/git-completion.sh ] ; then
+#   source "${HOME}/.monkeydotfiles/git/git-completion.sh"
+# fi
 
 # Source cheat completion
 if [ -f ${HOME}/.monkeydotfile/cheat/cheat-completion.sh ] ; then
@@ -84,16 +65,9 @@ explain () {
 GPG_TTY=$(tty)
 export GPG_TTY
 
-#############
+###############################################################################
 # Pathing
-#############
-
-# Brew curl
-# For compilers to find curl you may need to set
-# export PATH="/usr/local/opt/curl/bin:$PATH"
-
-export LDFLAGS="-L/usr/local/opt/curl/lib"
-export CPPFLAGS="-I/usr/local/opt/curl/include"
+###############################################################################
 
 # Visual Studio Code
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
@@ -105,9 +79,9 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 # Remember to `pyenv global 3.9.12 2.7.18` or whatever versions I have installed
 export PATH="$(pyenv root)/shims:$PATH"
 
-###################
+###############################################################################
 # Misc Exports
-###################
+###############################################################################
 
 # Brew export
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -140,4 +114,4 @@ export TERRAGRUNT_LOCAL=true
 # export NEW_RELIC_ADMIN_API_KEY=NRAA-1b2ec86c466160327bf88445a00
 # export NEW_RELIC_REGION=us
 
-echo "  Bash exports sourced."
+echo "  Zsh exports sourced."

@@ -1,0 +1,63 @@
+#!/bin/zsh
+
+# Run a Docker Ubuntu container for wherever you are
+function dkUbuntu() {
+  echo "Running a Ubuntu Docker container and mounting the current directory \"$(pwd)\"..."
+  docker run -it --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN -v $(pwd):/mnt/$(basename $(pwd)) -w /mnt/$(basename $(pwd)) jknsware/grunt /bin/bash
+}
+
+alias dk="docker"
+alias dkl="docker logs"
+alias dklf="docker logs -f"
+alias dki="docker images"
+alias dks="docker service"
+alias dkrm="docker rm"
+alias dkrmi="docker rmi"
+alias dm="docker-machine"
+alias dmx="docker-machine ssh"
+alias dkps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Command}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Ports}}\t{{.Mounts}}"'
+alias dktop='docker stats --format "table {{.Name}}\t{{.ID}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.NetIO}}"'
+alias ctop='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
+
+function dke () {
+  if [ -z "$1" ] ; then
+    echo "USAGE: Exec into a container."
+    echo "USAGE: dke <container_name>"
+  else
+    docker exec -it "$1" /bin/bash
+  fi
+}
+
+function dkflush () {
+  local cont_name=""
+  local cont_image=""
+
+  if [ -z "$1" ] ; then
+    echo "USAGE: Removes the running container and image."
+    echo "USAGE: dkflush <container_name>"
+  else
+    cont_name=$(docker ps -a | grep "$1" | awk '{print $1}')
+    cont_image=$(docker ps -a | grep "$1" | awk '{print $2}')
+    docker rm -f "$cont_name"
+    docker rmi -f "$cont_image"
+  fi
+}
+
+function dkln() {
+  if [ -z "$1" ] ; then
+    echo "USAGE: Follows the docker log of a container."
+    echo "USAGE: dkln <container_name>"
+  else
+    docker logs -f "$(docker ps | grep "$1" | awk '{print $1}')"
+  fi
+}
+
+function dkstats () {
+  if [ $# -eq 0 ] ; then
+    docker stats --no-stream
+  else
+    docker stats --no-stream | grep "$1"
+  fi
+}
+
+echo "  Zsh docker sourced."

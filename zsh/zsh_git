@@ -1,0 +1,71 @@
+#!/bin/zsh
+
+###############################################################################
+# Git Aliases
+###############################################################################
+
+# Also check ${HOME}/.monkeydotfiles/git/gitconfig for strict git aliases
+
+# Git - Tag help
+function gittag()
+{
+  echo "  To add tags:"
+  echo "  git tag -a v0.1.18 -m \"Adds this functionality\""
+  echo "  git push origin --tags"
+  echo "   "
+  echo "  To delete tags:"
+  echo "  git tag -d tag-name"
+  echo "  git push origin :refs/tags/tag-name"
+}
+
+# Alias changing to main git repos
+alias cdm="cd ${HOME}/git/rocketauto/coreinfrastructure-iac"
+alias cdl="cd ${HOME}/git/rocketauto/appinfrastructure-iac"
+alias cdra="cd ${HOME}/git/rocketauto"
+alias cdho="cd ${HOME}/git/home"
+
+###############################################################################
+# Git Exports
+###############################################################################
+
+# Export GITHUB_OATH_TOKEN
+export GITHUB_OAUTH_TOKEN=273b9bd22448bc9df19ba849d2af22658d54c3d2
+export GITHUB_PAT=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
+
+# Clean local branches
+function git_clean_local_branches {
+  OPTION="-d";
+  if [[ "$1" == "-f" ]]; then
+    echo "WARNING! Removing with force";
+    OPTION="-D";
+  fi;
+
+  TO_REMOVE=`git branch -r | awk "{print \\$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \\$1}"`;
+  if [[ "$TO_REMOVE" != "" ]] && [[ `echo $TO_REMOVE | wc -l | bc` != "0" ]]; then
+    echo "Removing branches...";
+    echo "";
+    printf "\n$TO_REMOVE\n\n";
+    echo "Proceed?";
+
+    select result in Yes No; do
+      if [[ "$result" == "Yes" ]]; then
+        echo "Removing in progress...";
+        echo "$TO_REMOVE" | xargs git branch "$OPTION";
+        if [[ "$?" -ne "0" ]]; then
+          echo ""
+          echo "Some branches was not removed, you have to do it manually!";
+        else
+          echo "All branches removed!";
+        fi
+      fi
+
+      break;
+    done;
+  else
+    echo "You have nothing to clean";
+  fi
+}
+
+alias gclb=git_clean_local_branches
+
+echo "  Zsh git sourced."

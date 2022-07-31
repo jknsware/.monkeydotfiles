@@ -1,0 +1,83 @@
+#!/bin/zsh
+
+###############################################################################
+# Aliases
+###############################################################################
+
+# ea - Alias for editing monkeydotfiles
+alias em='code ${HOME}/.monkeydotfiles'
+
+# sm - Alias for sourcing monkeydotfiles
+#alias sm='source ${HOME}/.bash_profile'
+
+##### ls - ls alias configured
+# Set 'ls' to all, human readable, long format, display helpful info, and color
+alias ll='ls -ahlFG'
+
+# Set 'py3' to be Python3 on cmd line
+alias py3=python3
+
+# Set 'pip2' to be pip2 on cmd line
+# alias pip='/usr/local/bin/pip3'
+
+# Set 'gc' to be gcloud on cmd line
+alias gc=gcloud
+
+# Set 'vagrant destroy --force' on cmd ling
+alias vdf='vagrant destroy --force'
+
+# Set Visual Studio Code to 'co'
+# ln -sf "/usr/local/bin/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
+alias co=code
+
+# Set 'fragrant' to vagrant
+alias fragrant=vagrant
+
+# Alias changing directories by specifying number of levels up
+function cd_up() {
+  cd $(printf "%0.s../" $(seq 1 $1 ));
+}
+alias 'cd..'='cd_up'
+
+# Cht.sh
+alias cheat=${HOME}/.monkeydotfiles/cheat/cht.sh
+
+# terragrunt functions
+function tgaaa() {
+  echo "Terragrunt Apply Auto-Approve"
+  terragrunt apply -auto-approve
+}
+
+function tgpl() {
+  echo "Terragrunt Plan"
+  terragrunt plan
+}
+
+function tgo() {
+  echo "Terragrunt Output"
+  terragrunt output
+}
+
+function tgddd() {
+  echo "DIE DIE DIE!!!"
+  terragrunt destroy
+}
+
+alias dkgrunt="docker run -it --rm -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN} --mount type=bind,source=/Users/jware/.ssh,target=/root/.ssh,readonly --mount type=bind,source=/Users/jware/.aws,target=/root/.aws,readonly --name terragrunt --hostname docker-terragrunt jknsware/docker-terragrunt:0.7"
+
+###############################################################################
+# AWS
+###############################################################################
+
+# List EC2 IPs
+alias ec2-ips="aws ec2 describe-instances | jq -r '.Reservations[].Instances[] | [.InstanceId, .NetworkInterfaces[].PrivateIpAddress, (.Tags[]|select(.Key==\"Name\")|.Value)]'"
+
+# AWS whoami
+function awswhoami () {
+  echo "The command is: aws sts get-caller-identity"
+  aws sts get-caller-identity
+}
+
+
+
+echo "  Zsh aliases sourced."
