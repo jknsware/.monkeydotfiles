@@ -114,4 +114,7 @@ export TERRAGRUNT_LOCAL=true
 # export NEW_RELIC_ADMIN_API_KEY=NRAA-1b2ec86c466160327bf88445a00
 # export NEW_RELIC_REGION=us
 
+# zsh-autosuggestions settings.
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
 echo "  Zsh exports sourced."

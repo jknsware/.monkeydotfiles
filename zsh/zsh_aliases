@@ -65,6 +65,10 @@ function tgddd() {
 
 alias dkgrunt="docker run -it --rm -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN} --mount type=bind,source=/Users/jware/.ssh,target=/root/.ssh,readonly --mount type=bind,source=/Users/jware/.aws,target=/root/.aws,readonly --name terragrunt --hostname docker-terragrunt jknsware/docker-terragrunt:0.7"
 
+function weather () {
+    curl "https://wttr.in/Cedar_Park"
+}
+
 ###############################################################################
 # AWS
 ###############################################################################
