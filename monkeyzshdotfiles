@@ -117,7 +117,7 @@ fi
 # Clone dotfiles
 ###############################################################################
 
-read -rep $'\nWhere do you want to clone these dotfiles to [~/dotfiles]? ' clone_path
+read -rep $'\nWhere do you want to clone these dotfiles to [~/.monkeydotfiles]? ' clone_path
 clone_path="${clone_path:-"${HOME}/.monkeydotfiles"}"
 
 # Ensure path doesn't exist.
@@ -137,7 +137,7 @@ echo
 if [ "${DEBUG}" == "1" ]; then
     cp -R "${PWD}/." "${clone_path}"
 else
-    git clone https://github.com/nickjj/dotfiles "${clone_path}"
+    git clone https://github.com/jknsware/.monkeydotfiles "${clone_path}"
 fi
 
 ###############################################################################
