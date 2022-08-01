@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+###############################################################################
+# History settings
+###############################################################################
+
 export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
 export HISTSIZE=50000                                 # History lines stored in mememory.
 export SAVEHIST=50000                                 # History lines stored on disk.
@@ -15,7 +19,6 @@ setopt HIST_REDUCE_BLANKS                             # Remove unnecessary blank
 ###############################################################################
 
 # AWS Command Completion
-# complete -C '/usr/local/bin/aws_completer' aws
 if [ -f /usr/local/bin/aws_completer ] ; then
   complete -C /usr/local/bin/aws_completer aws
 fi
@@ -62,6 +65,7 @@ explain () {
   fi
 }
 
+# Set gpg prompts to use the terminal
 GPG_TTY=$(tty)
 export GPG_TTY
 
@@ -116,5 +120,15 @@ export TERRAGRUNT_LOCAL=true
 
 # zsh-autosuggestions settings.
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
+###############################################################################
+# Set up a few standard directories based on:
+#   https://wiki.archlinux.org/title/XDG_Base_Directory
+###############################################################################
+
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
 
 echo "  Zsh exports sourced."
