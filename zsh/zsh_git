@@ -24,14 +24,6 @@ alias cdl="cd ${HOME}/git/rocketauto/appinfrastructure-iac"
 alias cdra="cd ${HOME}/git/rocketauto"
 alias cdho="cd ${HOME}/git/home"
 
-###############################################################################
-# Git Exports
-###############################################################################
-
-# Export GITHUB_OATH_TOKEN
-export GITHUB_OAUTH_TOKEN=
-export GITHUB_PAT=
-
 # Clean local branches
 function git_clean_local_branches {
   OPTION="-d";
