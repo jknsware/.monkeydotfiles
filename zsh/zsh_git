@@ -29,8 +29,8 @@ alias cdho="cd ${HOME}/git/home"
 ###############################################################################
 
 # Export GITHUB_OATH_TOKEN
-export GITHUB_OAUTH_TOKEN=273b9bd22448bc9df19ba849d2af22658d54c3d2
-export GITHUB_PAT=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
+export GITHUB_OAUTH_TOKEN=
+export GITHUB_PAT=
 
 # Clean local branches
 function git_clean_local_branches {

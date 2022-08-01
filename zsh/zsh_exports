@@ -103,15 +103,15 @@ export TF_PLUGIN_CACHE_DIR=${HOME}/.terraform.d/plugin-cache
 export TERRAGRUNT_LOCAL=true
 
 # CirleCI Token
-# export CIRCLECI_TOKEN=20258596808ca5408283fd04bda4dcccfe053015
+# export CIRCLECI_TOKEN=
 
 # PagerDuty Token
-# export PAGERDUTY_TOKEN=nh_EzBzBmBsBA-CNUNUn
+# export PAGERDUTY_TOKEN=
 
 # New Relic
-# export NEW_RELIC_ACCOUNT_ID=2747348
-# export NEW_RELIC_API_KEY=NRAK-9NEORELT7HG07XR54FMLZ9R0FWW
-# export NEW_RELIC_ADMIN_API_KEY=NRAA-1b2ec86c466160327bf88445a00
+# export NEW_RELIC_ACCOUNT_ID=
+# export NEW_RELIC_API_KEY=
+# export NEW_RELIC_ADMIN_API_KEY=
 # export NEW_RELIC_REGION=us
 
 # zsh-autosuggestions settings.
