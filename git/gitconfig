@@ -43,10 +43,10 @@
   publish = !git push -u origin $(git branch-name)
 
 
-[user]
-  name = Jason Ware
-  email = jason@jknsware.com
-  useconfigonly = true
+# [user]
+#   name = Jason Ware
+#   email = jason@jknsware.com
+#   useconfigonly = true
 
 [filter "lfs"]
   required = true
