@@ -1,4 +1,4 @@
-# .monkeydotfiles
+# .monkeyzshdotfiles
 
 
 ## How or why to use this project
@@ -8,10 +8,6 @@ This is the repo I'm using to store all of the MacOS config I need to bootstrap 
 
 ## Technical or step-by-step instructions
 
-Clone this repo into `~/`, make sure `~/.monkeydotfiles/monkeydotfiles` is executable, and run it. Use `./monkeydotfiles --help` for usage.
-
-
-### Thanks
-
-- [@codep0tato](https://github.com/codep0tato), for introducing me to <insert_anything_cool_here>.
-- [@yungjames](https://github.com/yungjames/mydotfiles/tree/divergent), for creating a template to work off of.
+1. Run `bash <(curl -s https://raw.githubusercontent.com/jknsware/.monkeydotfiles/master/monkeyzshdotfiles)` from a terminal and follow the prompts within the script.
+1. After the install, go to iterm2. Open Preferences > Profiles > Text tab. Select the "Meslo LG L DZ for Powerline" font to fix the "Agnoster" zsh theme.
+![Dotfiles](https://cdn.hashnode.com/res/hashnode/image/upload/v1645211259190/mlm-DCDRP.png?auto=compress,format&format=webp)
