@@ -11,10 +11,10 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
-if [ -f $ZSH/oh-my-zsh.sh ] ; then
-  source "$ZSH/oh-my-zsh.sh"
+if [ -e ${ZSH}/oh-my-zsh.sh ] ; then
+  source "${ZSH}/oh-my-zsh.sh"
 fi
 
 # Set the update mode to reminder
