@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+# Load / source zsh plugins.
+. "${XDG_DATA_HOME}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+. "${XDG_DATA_HOME}/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+
+echo "  Zsh plugins sourced."

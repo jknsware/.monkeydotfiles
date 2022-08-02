@@ -88,6 +88,7 @@ export PATH="$(pyenv root)/shims:$PATH"
 ###############################################################################
 
 # Brew export
+# export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Enable Buildkit
@@ -120,15 +121,5 @@ export TERRAGRUNT_LOCAL=true
 
 # zsh-autosuggestions settings.
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-
-###############################################################################
-# Set up a few standard directories based on:
-#   https://wiki.archlinux.org/title/XDG_Base_Directory
-###############################################################################
-
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_CACHE_HOME="${HOME}/.cache"
-export XDG_DATA_HOME="${HOME}/.local/share"
-export XDG_STATE_HOME="${HOME}/.local/state"
 
 echo "  Zsh exports sourced."
