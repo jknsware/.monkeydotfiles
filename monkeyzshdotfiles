@@ -134,7 +134,9 @@ if [ ! -e "${HOME}/.oh-my-zsh" ] ; then
     sh -c "$(curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
     # Rename default .zshrc
-    mv "${HOME}/.zshrc" "${HOME}/.zshrc.orignal"
+    if [ -e "${HOME}/.zshrc" ] ; then
+        mv "${HOME}/.zshrc" "${HOME}/.zshrc.orignal"
+    fi
 fi
 
 ###############################################################################
@@ -142,16 +144,20 @@ fi
 # https://catalins.tech/improve-mac-terminal#heading-powerline-fonts
 ###############################################################################
 
-echo "  Installing Powerline fonts"
+echo "\n  Installing Powerline fonts"
 
-git clone https://github.com/powerline/fonts.git "${HOME}/.local/share/fonts"
-"${HOME}/.local/share/fonts/install.sh"
+if [ -e "${HOME}/.local/share/fonts/install.sh" ] ; then
+    echo "\n  Powerline fonts already install. No need to clone the repo."
+else
+    git clone https://github.com/powerline/fonts.git "${HOME}/.local/share/fonts"
+    "${HOME}/.local/share/fonts/install.sh"
+fi
 
 ###############################################################################
 # Clone dotfiles
 ###############################################################################
 
-read -rep $'\nWhere do you want to clone these dotfiles to [~/.monkeydotfiles]? ' clone_path
+read -rep $'\n  Where do you want to clone these dotfiles to [~/.monkeydotfiles]? ' clone_path
 clone_path="${clone_path:-"${HOME}/.monkeydotfiles"}"
 
 # Ensure path doesn't exist.
