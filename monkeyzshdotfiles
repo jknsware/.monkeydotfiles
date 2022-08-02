@@ -82,9 +82,9 @@ function display_packages {
 if [ -z "${skip_system_packages}" ]; then
 cat << EOF
 
+If you choose yes, all of the system packages below will be installed:
 
 $(display_packages)
-If you choose yes, all of the system packages below will be installed:
 
 If you choose no, the above packages will not be installed and this script
 will exit. This gives you a chance to edit the list of packages if you don't
