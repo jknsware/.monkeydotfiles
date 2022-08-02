@@ -6,8 +6,10 @@ skip_system_packages="${1}"
 
 os_type="$(uname -s)"
 
-apt_packages="curl git iproute2 python3-pip ripgrep tmux vim-gtk zsh"
-apt_packages_optional="gnupg htop jq pwgen shellcheck unzip"
+apt_packages="curl git" 
+# proute2 python3-pip ripgrep tmux vim-gtk zsh"
+apt_packages_optional=
+# "gnupg htop jq pwgen shellcheck unzip"
 
 brew_packages="git pyenv vim fzf awscli"
 brew_packages_optional="gnupg htop jq pwgen shellcheck tree"
