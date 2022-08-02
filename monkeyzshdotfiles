@@ -134,9 +134,8 @@ if [ ! -e "${HOME}/.oh-my-zsh" ] ; then
     sh -c "$(curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
     # Rename default .zshrc
-    if [ -e "${HOME}/.zshrc" ] ; then
+elif [ -e "${HOME}/.zshrc" ] ; then
         mv "${HOME}/.zshrc" "${HOME}/.zshrc.orignal"
-    fi
 fi
 
 ###############################################################################
@@ -144,10 +143,12 @@ fi
 # https://catalins.tech/improve-mac-terminal#heading-powerline-fonts
 ###############################################################################
 
-echo "\n  Installing Powerline fonts"
+echo
+echo "Installing Powerline fonts"
 
 if [ -e "${HOME}/.local/share/fonts/install.sh" ] ; then
-    echo "\n  Powerline fonts already install. No need to clone the repo."
+    echo
+    echo "Powerline fonts already install. No need to clone the repo."
 else
     git clone https://github.com/powerline/fonts.git "${HOME}/.local/share/fonts"
     "${HOME}/.local/share/fonts/install.sh"
@@ -239,6 +240,7 @@ ln -fs "${clone_path}/.zshenv" "${HOME}/.zshenv" \
 ###############################################################################
 
 cat << EOF
+
 Everything was installed successfully!
 
 Check out the README file on GitHub to do 1 quick thing manually:
