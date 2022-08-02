@@ -13,10 +13,6 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 
 export ZSH="${HOME}/.oh-my-zsh"
 
-if [ -e ${ZSH}/oh-my-zsh.sh ] ; then
-  source "${ZSH}/oh-my-zsh.sh"
-fi
-
 # Set the update mode to reminder
 zstyle ':omz:update' mode reminder
 
@@ -51,5 +47,10 @@ function sourcezsh () {
 }
 
 sourcezsh
+
+if [ -e ${ZSH}/oh-my-zsh.sh ] ; then
+  echo "Sourcing ZSH"
+  source "${ZSH}/oh-my-zsh.sh"
+fi
 
 echo "  Zsh env sourced."
