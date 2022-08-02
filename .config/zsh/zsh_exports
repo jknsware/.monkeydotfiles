@@ -131,7 +131,6 @@ export ZSH="$HOME/.oh-my-zsh"
 if [ -f $ZSH/oh-my-zsh.sh ] ; then
   source "$ZSH/oh-my-zsh.sh"
 fi
-source 
 
 # Set the update mode to reminder
 zstyle ':omz:update' mode reminder
