@@ -20,7 +20,6 @@ function sourcezsh () {
     "${ZDOTDIR}"/zsh_docker
     "${ZDOTDIR}"/zsh_git
     "${ZDOTDIR}"/zsh_plugins
-    "${HOME}"/.zshrc
     )
 
   for file in "${sourcefiles[@]}"; do
