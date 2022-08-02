@@ -196,6 +196,7 @@ cat << EOF
 -------------------------------------------------------------------------------
 
 ln -fs "${clone_path}/.zshenv" "${HOME}/.zshenv"
+ln -fs "${clone_path}/.zshrc" "${HOME}/.zshrc"
 ln -fs "${clone_path}/.config/zsh/zsh_aliases" "${HOME}/.config/zsh/zsh_aliases"
 ln -fs "${clone_path}/.config/zsh/zsh_docker" "${HOME}/.config/zsh/zsh_docker"
 ln -fs "${clone_path}/.config/zsh/zsh_exports" "${HOME}/.config/zsh/zsh_exports"
@@ -228,6 +229,7 @@ while true; do
 done
 
 ln -fs "${clone_path}/.zshenv" "${HOME}/.zshenv" \
+    && ln -fs "${clone_path}/.zshrc" "${HOME}/.zshrc" \
     && ln -fs "${clone_path}/.config/zsh/zsh_aliases" "${HOME}/.config/zsh/zsh_aliases" \
     && ln -fs "${clone_path}/.config/zsh/zsh_docker" "${HOME}/.config/zsh/zsh_docker" \
     && ln -fs "${clone_path}/.config/zsh/zsh_exports" "${HOME}/.config/zsh/zsh_exports" \

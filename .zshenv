@@ -13,14 +13,14 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 
 export ZSH="${HOME}/.oh-my-zsh"
 
-# Set the update mode to reminder
-zstyle ':omz:update' mode reminder
+# # Set the update mode to reminder
+# zstyle ':omz:update' mode reminder
 
-# Set the theme(s)
-ZSH_THEME="agnoster"
+# # Set the theme(s)
+# ZSH_THEME="agnoster"
 
-# Enable plugins
-plugins=(git web-search)
+# # Enable plugins
+# plugins=(git web-search)
 
 # Set the terminal to only show the username
 # https://catalins.tech/improve-mac-terminal
@@ -48,9 +48,9 @@ function sourcezsh () {
 
 sourcezsh
 
-if [ -e ${ZSH}/oh-my-zsh.sh ] ; then
-  echo "Sourcing ZSH"
-  source "${ZSH}/oh-my-zsh.sh"
-fi
+# if [ -e ${ZSH}/oh-my-zsh.sh ] ; then
+#   echo "Sourcing ZSH"
+#   source "${ZSH}/oh-my-zsh.sh"
+# fi
 
 echo "  Zsh env sourced."
