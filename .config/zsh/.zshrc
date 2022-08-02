@@ -11,7 +11,7 @@ plugins=(git web-search)
 
 # source $ZSH/oh-my-zsh.sh
 if [ -e ${ZSH}/oh-my-zsh.sh ] ; then
-  echo "Sourcing ZSH"
+  echo "  Sourcing ZSH"
   source "${ZSH}/oh-my-zsh.sh"
 fi
 
