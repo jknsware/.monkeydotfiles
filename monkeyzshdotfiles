@@ -229,7 +229,7 @@ while true; do
 done
 
 ln -fs "${clone_path}/.zshenv" "${HOME}/.zshenv" \
-    && cp "${clone_path}/.zshrc" "${HOME}/.config/zsh/.zshrc" \
+    && cp "${clone_path}/.config/zsh/.zshrc" "${HOME}/.config/zsh/.zshrc" \
     && ln -fs "${clone_path}/.config/zsh/zsh_aliases" "${HOME}/.config/zsh/zsh_aliases" \
     && ln -fs "${clone_path}/.config/zsh/zsh_docker" "${HOME}/.config/zsh/zsh_docker" \
     && ln -fs "${clone_path}/.config/zsh/zsh_exports" "${HOME}/.config/zsh/zsh_exports" \
