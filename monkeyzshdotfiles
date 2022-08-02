@@ -144,7 +144,7 @@ fi
 
 echo "  Installing Powerline fonts"
 
-git clone https://github.com/powerline/fonts.git "${HOME}/.local/share"
+git clone https://github.com/powerline/fonts.git "${HOME}/.local/share/fonts"
 "${HOME}/.local/share/fonts/install.sh"
 
 ###############################################################################
