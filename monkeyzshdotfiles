@@ -119,8 +119,10 @@ fi
 # Install Oh My Zsh
 ###############################################################################
 
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sh -c "$(curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Rename default .zshrc
+mv "${HOME}/.zshrc" "${HOME}/.zshrc.orignal"
 
 ###############################################################################
 # Clone dotfiles
@@ -175,6 +177,11 @@ cat << EOF
 -------------------------------------------------------------------------------
 
 ln -fs "${clone_path}/.zshenv" "${HOME}/.zshenv"
+ln -fs "${clone_path}/.config/zsh/zsh_aliases" "${HOME}/.config/zsh/zsh_aliases"
+ln -fs "${clone_path}/.config/zsh/zsh_docker" "${HOME}/.config/zsh/zsh_docker"
+ln -fs "${clone_path}/.config/zsh/zsh_exports" "${HOME}/.config/zsh/zsh_exports"
+ln -fs "${clone_path}/.config/zsh/zsh_git" "${HOME}/.config/zsh/zsh_git"
+ln -fs "${clone_path}/.config/zsh/zsh_plugins" "${HOME}/.config/zsh/zsh_plugins"
 ln -fs "${clone_path}/.local/bin/update-zsh-plugins" "${HOME}/.local/bin/update-zsh-plugins"
 
 -------------------------------------------------------------------------------
@@ -202,6 +209,11 @@ while true; do
 done
 
 ln -fs "${clone_path}/.zshenv" "${HOME}/.zshenv" \
+    && ln -fs "${clone_path}/.config/zsh/zsh_aliases" "${HOME}/.config/zsh/zsh_aliases" \
+    && ln -fs "${clone_path}/.config/zsh/zsh_docker" "${HOME}/.config/zsh/zsh_docker" \
+    && ln -fs "${clone_path}/.config/zsh/zsh_exports" "${HOME}/.config/zsh/zsh_exports" \
+    && ln -fs "${clone_path}/.config/zsh/zsh_git" "${HOME}/.config/zsh/zsh_git" \
+    && ln -fs "${clone_path}/.config/zsh/zsh_plugins" "${HOME}/.config/zsh/zsh_plugins" \
     && ln -fs "${clone_path}/.local/bin/update-zsh-plugins" "${HOME}/.local/bin/update-zsh-plugins"
 
 ###############################################################################
