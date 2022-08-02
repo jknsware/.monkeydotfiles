@@ -114,6 +114,12 @@ else
 fi
 
 ###############################################################################
+# Install Oh My Zsh
+###############################################################################
+
+sh -c "$(curl -fs https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+###############################################################################
 # Clone dotfiles
 ###############################################################################
 
@@ -179,7 +185,7 @@ get forcefully symlinked.
 What does that mean?
 
 Any config files you have on the right hand side of the paths are going to get
-overwritten with the files that come with my dotfiles (left side).
+overwritten with the files that come with my monkeyzshdotfiles (left side).
 
 If you care about your original config files now would be the time to back
 them up. They will ALL be overwritten if you say yes to the prompt below.
