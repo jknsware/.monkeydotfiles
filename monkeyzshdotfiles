@@ -119,7 +119,7 @@ fi
 # Install Oh My Zsh
 ###############################################################################
 
-sh -c "$(curl -fs https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ###############################################################################
 # Clone dotfiles
