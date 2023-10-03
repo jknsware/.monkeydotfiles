@@ -91,7 +91,8 @@ export PATH="$(pyenv root)/shims:$PATH"
 ###############################################################################
 
 # Brew export
-# export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Enable Buildkit
@@ -109,6 +110,9 @@ export TF_PLUGIN_CACHE_DIR=${HOME}/.terraform.d/plugin-cache
 # Terragrunt Local
 # Use local IAM role instead of Atlantis
 export TERRAGRUNT_LOCAL=true
+
+# DigitalOcean PAT
+export DO_PAT="dop_v1_71a608f99b0d9e72d277906d5a365b8554e989ebcf929105ccb280ce6ff274ef"
 
 # CirleCI Token
 # export CIRCLECI_TOKEN=

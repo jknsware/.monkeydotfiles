@@ -8,7 +8,7 @@
 alias em='code ${HOME}/.monkeydotfiles'
 
 # sm - Alias for sourcing monkeydotfiles
-#alias sm='source ${HOME}/.bash_profile'
+alias sm='source ${HOME}/.monkeydotfiles/.config/zsh/.zshrc'
 
 ##### ls - ls alias configured
 # Set 'ls' to all, human readable, long format, display helpful info, and color

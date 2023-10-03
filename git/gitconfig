@@ -63,3 +63,7 @@
 	useHttpPath = true
 [credential "https://git.rockfin.com"]
 	provider = github
+[credential "https://gittest.rockfin.com"]
+	provider = github
+[credential "https://github.com"]
+  provider = github
