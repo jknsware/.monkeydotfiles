@@ -112,7 +112,7 @@ export TF_PLUGIN_CACHE_DIR=${HOME}/.terraform.d/plugin-cache
 export TERRAGRUNT_LOCAL=true
 
 # DigitalOcean PAT
-export DO_PAT="dop_v1_71a608f99b0d9e72d277906d5a365b8554e989ebcf929105ccb280ce6ff274ef"
+export DO_PAT="dop_v1_c1f775ea453bbdc1f2d401faf9f425321345f516e5126b83aed30ecc4d8c29c1"
 
 # CirleCI Token
 # export CIRCLECI_TOKEN=
