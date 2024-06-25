@@ -204,7 +204,7 @@ ln -fs "${clone_path}/.config/zsh/zsh_git" "${HOME}/.config/zsh/zsh_git"
 ln -fs "${clone_path}/.config/zsh/zsh_plugins" "${HOME}/.config/zsh/zsh_plugins"
 ln -fs "${clone_path}/.local/bin/update-zsh-plugins" "${HOME}/.local/bin/update-zsh-plugins"
 ln -fs "${clone_path}/git "${HOME}"/.git
-ls -fs "${clone_path}/git/gitconfig "${HOME}"/.gitconfig
+ls -fs "${clone_path}/git/gitconfig "${HOME}/.gitconfig"
 
 -------------------------------------------------------------------------------
 
