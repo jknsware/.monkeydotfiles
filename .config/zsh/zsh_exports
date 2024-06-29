@@ -84,7 +84,7 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 export PATH="$(pyenv root)/shims:$PATH"
 
 # Rancher Desktop
-export PATH="/Users/JWare5/.rd/bin:$PATH"
+# export PATH="/Users/JWare5/.rd/bin:$PATH"
 
 ###############################################################################
 # Misc Exports
