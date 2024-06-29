@@ -35,7 +35,7 @@ fi
 
 # kubectl completion
 # https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-mac/
-source <(kubectl completion bash)
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 # Source git completion
 # Source - https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
