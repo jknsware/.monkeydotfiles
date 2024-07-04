@@ -15,11 +15,11 @@ function sourcezsh () {
   local sourcefiles=()
 
   sourcefiles=(
-    "${ZDOTDIR}"/zsh_exports
     "${ZDOTDIR}"/zsh_aliases
     "${ZDOTDIR}"/zsh_docker
     "${ZDOTDIR}"/zsh_git
     "${ZDOTDIR}"/zsh_plugins
+    "${ZDOTDIR}"/zsh_exports
     )
 
   for file in "${sourcefiles[@]}"; do
