@@ -50,6 +50,11 @@ if [ -f ${HOME}/.monkeydotfile/cheat/cheat-completion.sh ] ; then
   source "${HOME}/.monkeydotfiles/cheat/cheat-completion.sh"
 fi
 
+# ngrok completion
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+
 # explain.sh begins
 # https://www.tecmint.com/explain-shell-commands-in-the-linux-shell/
 explain () {
