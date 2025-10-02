@@ -19,9 +19,6 @@ function gittag()
 }
 
 # Alias changing to main git repos
-alias cdm="cd ${HOME}/git/rocketauto/coreinfrastructure-iac"
-alias cdl="cd ${HOME}/git/rocketauto/appinfrastructure-iac"
-alias cdra="cd ${HOME}/git/rocketauto"
 alias cdho="cd ${HOME}/git/home"
 
 # Clean local branches

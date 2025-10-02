@@ -80,8 +80,8 @@ export GPG_TTY
 # Pathing
 ###############################################################################
 
-# Visual Studio Code
-export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+# Used for Homebrew and Python stuff
+export PATH="${HOME}/.local/bin:$PATH"
 
 # Python
 # Python is controlled with pyenv. Use it.
@@ -89,9 +89,6 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 # Pyenv PATH export
 # Remember to `pyenv global 3.9.12 2.7.18` or whatever versions I have installed
 export PATH="$(pyenv root)/shims:$PATH"
-
-# Rancher Desktop
-# export PATH="/Users/JWare5/.rd/bin:$PATH"
 
 ###############################################################################
 # Misc Exports
@@ -103,7 +100,7 @@ export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Set VS Code as default editor
-export EDITOR='code --wait'
+export EDITOR='cursor --wait'
 
 # Enable Buildkit
 export DOCKER_BUILDKIT=1
@@ -120,21 +117,6 @@ export TF_PLUGIN_CACHE_DIR=${HOME}/.terraform.d/plugin-cache
 # Terragrunt Local
 # Use local IAM role instead of Atlantis
 export TERRAGRUNT_LOCAL=true
-
-# DigitalOcean PAT
-# export DO_PAT=
-
-# CirleCI Token
-# export CIRCLECI_TOKEN=
-
-# PagerDuty Token
-# export PAGERDUTY_TOKEN=
-
-# New Relic
-# export NEW_RELIC_ACCOUNT_ID=
-# export NEW_RELIC_API_KEY=
-# export NEW_RELIC_ADMIN_API_KEY=
-# export NEW_RELIC_REGION=us
 
 ###############################################################################
 # OH-MY-ZSH Settings

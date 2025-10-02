@@ -17,18 +17,11 @@ alias ll='ls -ahlFG'
 # Set 'py3' to be Python3 on cmd line
 alias py3=python3
 
-# Set 'pip2' to be pip2 on cmd line
-# alias pip='/usr/local/bin/pip3'
-
 # Set 'gc' to be gcloud on cmd line
 alias gc=gcloud
 
 # Set 'vagrant destroy --force' on cmd ling
 alias vdf='vagrant destroy --force'
-
-# Set Visual Studio Code to 'co'
-# ln -sf "/usr/local/bin/Visual Studio Code.app/Contents/Resources/app/bin/code" /usr/local/bin/code
-alias co=code
 
 # Set 'fragrant' to vagrant
 alias fragrant=vagrant
