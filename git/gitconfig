@@ -52,10 +52,10 @@
   template = ~/.git/templates/hooks/commit-msg-template
 
 [core]
-  editor = code --wait --new-window
+  editor = cursor --wait --new-window
   hookspath = ~/.git/templates/hooks
 [merge]
-	tool = code
+	tool = cursor
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
