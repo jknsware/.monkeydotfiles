@@ -99,14 +99,14 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Set VS Code as default editor
+# Cursor export
+export PATH="/Applications/Cursor.app/Contents/MacOS:$PATH"
+
+# Set Cursor as default editor
 export EDITOR='cursor --wait'
 
 # Enable Buildkit
 export DOCKER_BUILDKIT=1
-
-# NPM Token
-export NPM_TOKEN=be7e43c9-d57d-424b-ae27-9f3e7828d7df
 
 # Terragrunt cache location
 export TERRAGRUNT_DOWNLOAD=${HOME}/.terragrunt/cache
