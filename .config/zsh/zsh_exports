@@ -24,13 +24,15 @@ if [ -f /usr/local/bin/aws_completer ] ; then
 fi
 
 # Source gcloud
-if [ -f /usr/local/bin/google-cloud-sdk/path.bash.inc ] ; then
-  source "/usr/local/bin/google-cloud-sdk/path.bash.inc"
-fi
+# If installed via homebrew, the path is /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+# if [ -f /usr/local/bin/google-cloud-sdk/path.bash.inc ] ; then
+#   source "/usr/local/bin/google-cloud-sdk/path.zsh.inc"
+# fi
 
 # Source gcloud completion
+# Have to manually copy the completion.zsh.inc file to the /usr/local/bin/google-cloud-sdk/completion.zsh.inc path.
 if [ -f /usr/local/bin/google-cloud-sdk/completion.bash.inc ] ; then
-  source "/usr/local/bin/google-cloud-sdk/completion.bash.inc"
+  source "/usr/local/bin/google-cloud-sdk/completion.zsh.inc"
 fi
 
 # kubectl completion
